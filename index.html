@@ -4,141 +4,305 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FND | Fronte della Nuova Destra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Lexend:wght@400;800&display=swap" rel="stylesheet">
     <style>
-        :root { --blu: #004a99; --rosso: #cc0000; --scuro: #001529; --bianco: #ffffff; }
-        body { font-family: 'Lexend', sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; overflow-x: hidden; }
-        
-        /* Navbar */
-        header { 
-            background: var(--blu); padding: 10px 5%; display: flex; justify-content: space-between; 
-            align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        :root {
+            --primary: #004a99;
+            --accent: #cc0000;
+            --bg-dark: #0a0a0c;
+            --card-bg: #16161a;
+            --text-light: #f1f1f1;
+            --glass: rgba(255, 255, 255, 0.03);
         }
-        .logo-img { height: 65px; width: auto; }
-        .btn-top { background: var(--rosso); color: white; padding: 10px 18px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
-        .btn-top:hover { background: #a30000; transform: scale(1.05); }
 
-        /* Hero Section */
-        .hero { 
-            background: linear-gradient(rgba(0, 74, 153, 0.8), rgba(0, 21, 41, 0.9)), url('https://images.unsplash.com/photo-1540910419892-f0c976742663?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover; background-position: center; min-height: 80vh; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; text-align: center; color: white; padding: 20px;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
         }
-        .hero h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: -1px; line-height: 1.1; }
-        
-        /* Dashboard con Vetro Trasparente */
-        .dashboard { display: flex; gap: 15px; margin: 35px 0; flex-wrap: wrap; justify-content: center; }
-        .stat { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 18px 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
-        .stat-n { display: block; font-size: 1.8rem; font-weight: bold; color: var(--bianco); }
-        .stat-t { font-size: 0.75rem; text-transform: uppercase; color: #ccc; letter-spacing: 1px; }
 
-        /* Contenuto Sezioni */
-        .section { padding: 80px 10%; }
-        .title { color: var(--blu); font-size: 2.5rem; text-align: center; margin-bottom: 50px; position: relative; text-transform: uppercase; }
-        .title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--rosso); margin: 15px auto; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
-        .card { background: #ffffff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border-top: 5px solid var(--blu); }
-        .card h3 { color: var(--rosso); margin-top: 0; font-size: 1.5rem; }
+        /* Navigazione Ultra-Moderna */
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
 
-        /* Box Speciale U.S.I. */
-        .usi-box { background: var(--scuro); color: white; border-radius: 25px; padding: 50px; margin-top: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        .step { margin-bottom: 30px; padding-left: 25px; border-left: 3px solid var(--rosso); }
-        .step h4 { color: var(--rosso); margin: 0 0 10px 0; font-size: 1.3rem; text-transform: uppercase; }
+        .nav-logo img { height: 50px; transition: 0.3s; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a {
+            color: white; text-decoration: none; font-size: 0.8rem;
+            text-transform: uppercase; font-weight: 700; letter-spacing: 1px;
+            transition: 0.3s; opacity: 0.7;
+        }
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-        /* Footer e Bottoni */
-        footer { background: #050505; color: white; padding: 40px; text-align: center; font-size: 0.9rem; }
-        .btn-final { background: var(--rosso); color: white; padding: 18px 40px; text-decoration: none; border-radius: 10px; font-weight: bold; display: inline-block; margin-top: 30px; text-transform: uppercase; transition: 0.3s; }
-        .btn-final:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(204,0,0,0.3); }
+        /* Hero Section Dinamica */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(0, 74, 153, 0.15) 0%, transparent 70%);
+            padding: 20px;
+        }
 
-        /* Mobile Optimization */
+        .hero h1 {
+            font-family: 'Lexend', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #fff 50%, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Pulsantiera Principale */
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+        }
+
+        .btn-usi { background: var(--accent); color: white; border: 2px solid var(--accent); }
+        .btn-chi { background: transparent; color: white; border: 2px solid white; }
+        .btn-obj { background: var(--primary); color: white; border: 2px solid var(--primary); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+
+        /* Dashboard Live */
+        .dashboard {
+            display: flex;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            background: var(--glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 40px;
+            border-radius: 20px;
+        }
+
+        .stat-card span { display: block; }
+        .stat-val { font-size: 1.8rem; font-weight: 900; color: white; }
+        .stat-lab { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Sezioni Dettagliate */
+        section { padding: 100px 10%; }
+        .section-tag { color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+        .section-title { font-family: 'Lexend', sans-serif; font-size: 3rem; margin-bottom: 30px; }
+
+        /* Grid Obiettivi */
+        .grid-obj {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .obj-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 30px;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .obj-box:hover { border-color: var(--primary); transform: scale(1.02); }
+        .obj-box h3 { margin-bottom: 15px; color: var(--primary); }
+
+        /* U.S.I. Detail Area */
+        .usi-detail {
+            background: linear-gradient(145deg, #16161a 0%, #0a0a0c 100%);
+            padding: 60px;
+            border-radius: 40px;
+            border: 1px solid rgba(204, 0, 0, 0.2);
+        }
+
+        .usi-step {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: var(--accent);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #555;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .section { padding: 60px 5%; }
-            .logo-img { height: 50px; }
+            .hero h1 { font-size: 3rem; }
+            .hero-btns { flex-direction: column; width: 100%; padding: 0 20px; }
+            .nav-links { display: none; }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" alt="FND Logo" class="logo-img">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="btn-top">Aderisci Ora</a>
+        <div class="nav-logo"><img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" alt="Logo"></div>
+        <div class="nav-links">
+            <a href="#chi-siamo">Chi Siamo</a>
+            <a href="#usi">U.S.I.</a>
+            <a href="#obiettivi">Obiettivi</a>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="btn btn-usi" style="padding: 10px 20px; font-size: 0.7rem;">Aderisci</a>
     </header>
 
     <section class="hero">
-        <h1>RIPRENDIAMOCI<br>IL FUTURO</h1>
+        <span class="section-tag" style="margin-bottom: 20px;">Fronte della Nuova Destra</span>
+        <h1>OLTRE IL DEGRADO.<br>VERSO L'ORDINE.</h1>
+        
+        <div class="hero-btns">
+            <a href="#usi" class="btn btn-usi">Progetto U.S.I.</a>
+            <a href="#chi-siamo" class="btn btn-chi">Chi Siamo</a>
+            <a href="#obiettivi" class="btn btn-obj">I Nostri Obiettivi</a>
+        </div>
+
         <div class="dashboard">
-            <div class="stat"><span class="stat-t">Militanti</span><span class="stat-n" id="m-count">--</span></div>
-            <div class="stat"><span class="stat-t">In marcia dal 26 Nov</span><span class="stat-n" id="t-live">--</span></div>
-        </div>
-        <a href="#usi" class="btn-final">SCOPRI IL PROGETTO U.S.I.</a>
-    </section>
-
-    <section class="section">
-        <h2 class="title">Chi Siamo</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>La Visione</h3>
-                <p>Siamo giovani, professionisti e cittadini stanchi. Abbiamo creato il <b>Fronte della Nuova Destra</b> per trasformare la rabbia in competenza. Non promettiamo, eseguiamo.</p>
+            <div class="stat-card">
+                <span class="stat-val" id="m-count">--</span>
+                <span class="stat-lab">Militanti</span>
             </div>
-            <div class="card">
-                <h3>L'Obiettivo</h3>
-                <p>Ripristinare l'ordine tramite il decoro urbano, premiare il merito individuale e rendere i dirigenti pubblici responsabili delle proprie azioni.</p>
+            <div class="stat-card">
+                <span class="stat-val" id="t-live">--</span>
+                <span class="stat-lab">In Marcia Da</span>
             </div>
         </div>
     </section>
 
-    <section id="usi" class="section" style="background: #f4f7f9;">
-        <h2 class="title">Progetto U.S.I.</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem;">L'Ufficio Segnalazioni e Intervento è il nostro cuore operativo. Un sistema che elimina il degrado e premia chi si impegna.</p>
-        <div class="usi-box">
-            <div class="step">
-                <h4>1. Segnalazione Geolocalizzata</h4>
-                <p>Ogni militante mappa il territorio. Buca? Rifiuti? Oscurità? Viene registrato tutto con prova fotografica tramite la nostra rete dedicata.</p>
+    <section id="chi-siamo">
+        <span class="section-tag">L'Avanguardia</span>
+        <h2 class="section-title">Chi Siamo</h2>
+        <div style="max-width: 800px; font-size: 1.2rem; color: #ccc;">
+            <p style="margin-bottom: 20px;">Il <strong>Fronte della Nuova Destra</strong> non è un partito di promesse, ma una struttura operativa. Siamo nati dall'unione di giovani stanchi di vedere le proprie città scivolare nel degrado e nell'inefficienza.</p>
+            <p>Lo abbiamo creato per dare voce a chi crede ancora nella <strong>Gerarchia del Merito</strong> e nella <strong>Responsabilità Diretta</strong>. Ogni nostro membro è una sentinella del territorio, addestrata a rilevare problemi e a pretendere soluzioni immediate dallo Stato.</p>
+        </div>
+    </section>
+
+    <section id="usi">
+        <div class="usi-detail">
+            <span class="section-tag">Tecnologia e Controllo</span>
+            <h2 class="section-title">Dettaglio U.S.I.</h2>
+            <p style="margin-bottom: 40px; color: #aaa;">L'Ufficio Segnalazioni e Intervento è il cuore pulsante della nostra azione politica. Ecco come cambiamo la realtà, un ticket alla volta:</p>
+            
+            <div class="usi-step">
+                <div class="step-num">1</div>
+                <div>
+                    <h3>Mappatura Digitale</h3>
+                    <p>Tramite la nostra rete, ogni buca, cumulo di rifiuti o zona d'ombra viene geolocalizzata. Non lasciamo zone d'ombra.</p>
+                </div>
             </div>
-            <div class="step">
-                <h4>2. Responsabilità Diretta</h4>
-                <p>L'U.S.I. inoltra la pratica agli enti preposti. Se l'ente non risponde nei tempi previsti, scatta la denuncia pubblica e la richiesta di sanzioni amministrative.</p>
+
+            <div class="usi-step">
+                <div class="step-num">2</div>
+                <div>
+                    <h3>Pressione Istituzionale</h3>
+                    <p>Le segnalazioni vengono inviate agli uffici competenti. Monitoriamo i tempi di risposta: se lo Stato dorme, noi lo svegliamo con diffide legali e pressione mediatica.</p>
+                </div>
             </div>
-            <div class="step">
-                <h4>3. Sistema Civitas</h4>
-                <p>I cittadini che contribuiscono attivamente al decoro accumulano punti per vantaggi reali su tasse locali e servizi convenzionati.</p>
+
+            <div class="usi-step">
+                <div class="step-num">3</div>
+                <div>
+                    <h3>Il Credito Civitas</h3>
+                    <p>Chi segnala e aiuta a risolvere il degrado riceve meriti simbolici e reali all'interno del movimento, creando una nuova aristocrazia del fare.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="section" style="text-align: center;">
-        <h2 class="title">Entra nel Fronte</h2>
-        <p style="font-size: 1.2rem;">Non restare a guardare mentre la tua città decade. Varca la soglia e scrivi il domani insieme a noi.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="btn-final">COMPILA IL MODULO DI ADESIONE</a>
+    <section id="obiettivi">
+        <span class="section-tag">Programma Politico</span>
+        <h2 class="section-title">I Nostri Obiettivi</h2>
+        <div class="grid-obj">
+            <div class="obj-box">
+                <h3>🛡️ Ordine Pubblico</h3>
+                <p>Tolleranza zero per il micro-degrado urbano. Riconquista degli spazi pubblici tramite pattugliamenti civici coordinati.</p>
+            </div>
+            <div class="obj-box">
+                <h3>⚖️ Responsabilità</h3>
+                <p>Fine dell'anonimato burocratico. I dirigenti comunali devono rispondere personalmente dei ritardi negli interventi richiesti tramite U.S.I.</p>
+            </div>
+            <div class="obj-box">
+                <h3>🚀 Merito e Gioventù</h3>
+                <p>Creazione di canali preferenziali per giovani imprenditori che decidono di investire nel ripristino delle periferie.</p>
+            </div>
+            <div class="obj-box">
+                <h3>🇮🇹 Sovranità Locale</h3>
+                <p>Decisioni prese da chi vive il territorio. Il cittadino torna ad essere il "proprietario" della propria via e del proprio quartiere.</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="btn btn-usi" style="font-size: 1.1rem; padding: 20px 50px;">Aderisci alla Lotta</a>
+        </div>
     </section>
 
     <footer>
         <p>Fronte della Nuova Destra &copy; 2026</p>
-        <p style="color: var(--rosso); font-weight: bold; letter-spacing: 1px; margin-top: 10px;">OLTRE LE PAROLE, LA CONCRETEZZA.</p>
+        <p style="margin-top: 10px; font-weight: 800; color: white;">Oltre le parole, la concretezza.</p>
     </footer>
 
     <script>
-        function update() {
-            // DATA DI FONDAZIONE: 26 Novembre 2025
+        function updateStats() {
             const start = new Date('2025-11-26T09:00:00').getTime();
             const now = new Date().getTime();
             const diff = Math.floor((now - start) / 1000);
             
-            // Timer di esistenza (Giorni, Ore, Minuti, Secondi)
             const d = Math.floor(diff / 86400);
             const h = Math.floor((diff % 86400) / 3600);
             const m = Math.floor((diff % 3600) / 60);
             const s = diff % 60;
-            document.getElementById('t-live').innerHTML = `${d}g ${h}h ${m}m ${s}s`;
-
-            // Militanti (base 400 + crescita organica stimata di 1 ogni 12 ore)
+            
+            document.getElementById('t-live').innerHTML = `${d}g ${h}o ${m}m`;
             document.getElementById('m-count').innerHTML = 400 + Math.floor(diff / 43200);
         }
-        // Aggiorna ogni secondo per l'effetto LIVE
-        setInterval(update, 1000); 
-        update();
+        setInterval(updateStats, 1000);
+        updateStats();
     </script>
 </body>
 </html>
