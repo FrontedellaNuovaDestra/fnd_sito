@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fronte della Nuova Destra | Oltre le Parole</title>
+    <style>
+        :root {
+            --blu-fnd: #004a99;
+            --rosso-fnd: #cc0000;
+            --bianco: #ffffff;
+            --grigio-chiaro: #f4f4f4;
+            --testo: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--testo);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--blu-fnd);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo-area {
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-header {
+            background-color: var(--rosso-fnd);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 74, 153, 0.8), rgba(0, 74, 153, 0.8)), url('https://images.unsplash.com/photo-1555914309-4458f6689d70?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 10%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+
+        /* Sezione USI */
+        .usi-section {
+            padding: 4rem 10%;
+            background-color: var(--bianco);
+        }
+
+        .usi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h3 { color: var(--blu-fnd); }
+
+        /* Call to Action Section */
+        .cta-section {
+            background-color: var(--grigio-chiaro);
+            padding: 4rem 10%;
+            text-align: center;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background-color: var(--blu-fnd);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .motto { color: var(--rosso-fnd); font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            FND
+        </div>
+        <a href="#unisciti" class="btn-header">UNISCITI ORA</a>
+    </header>
+
+    <section class="hero">
+        <h1>Riprendiamoci il Futuro</h1>
+        <p>Ordine, Libertà e Concretezza per l'Italia di domani. Entra a far parte del Fronte della Nuova Destra.</p>
+        <a href="#usi" class="btn-header" style="font-size: 1.2rem; padding: 1rem 2rem;">PROGETTO U.S.I.</a>
+    </section>
+
+    <section id="usi" class="usi-section">
+        <h2 style="text-align: center; color: var(--blu-fnd); font-size: 2.5rem;">SISTEMA U.S.I.</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto;">Il nostro primo atto concreto per eliminare il degrado urbano e premiare i cittadini attivi.</p>
+        
+        <div class="usi-grid">
+            <div class="card">
+                <h3>📸 Segnala</h3>
+                <p>Scatta una foto al degrado urbano tramite la nostra piattaforma geolocalizzata.</p>
+            </div>
+            <div class="card">
+                <h3>🤖 Elabora</h3>
+                <p>L'IA indirizza la pratica al dirigente responsabile senza rimpalli burocratici.</p>
+            </div>
+            <div class="card">
+                <h3>🛠️ Intervieni</h3>
+                <p>Monitoraggio pubblico dell'intervento. Se lo Stato non risponde, il dirigente paga.</p>
+            </div>
+            <div class="card">
+                <h3>🛒 Guadagna</h3>
+                <p>Ricevi punti "Civitas" convertibili in buoni spesa nei negozi locali.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="unisciti" class="cta-section">
+        <h2>Sei pronto a varcare la soglia?</h2>
+        <p>Scarica il nostro Manifesto Programmatico e compila il modulo per diventare un militante.</p>
+        <a href="LINK_AL_TUO_MANIFESTO_PDF" class="btn-main" style="background-color: var(--rosso-fnd);">SCARICA MANIFESTO</a>
+        <br>
+        <a href="LINK_AL_TUO_GOOGLE_FORM" class="btn-main">COMPILA IL MODULO DI ADESIONE</a>
+    </section>
+
+    <footer>
+        <p>Fronte della Nuova Destra © 2026</p>
+        <p class="motto">OLTRE LE PAROLE, LA CONCRETEZZA.</p>
+    </footer>
+
+</body>
+</html>
