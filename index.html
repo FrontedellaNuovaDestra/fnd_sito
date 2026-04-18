@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FND | Fronte della Nuova Destra</title>
+    <title>FND | Programma Politico Integrale</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --fnd-blue: #003366;
             --fnd-white: #ffffff;
             --fnd-dark: #010204;
-            --fnd-grey: #121212;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--fnd-dark); color: var(--fnd-white); line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--fnd-dark); color: var(--fnd-white); }
 
         /* HEADER */
         header {
@@ -24,8 +23,8 @@
             display: flex; align-items: center; border-bottom: 3px solid var(--fnd-white);
         }
         .brand { display: flex; align-items: center; cursor: pointer; text-decoration: none; border: none; background: none; }
-        .logo-img { height: 100px; width: auto; margin-right: 20px; }
-        .brand-text h1 { font-family: 'Lexend', sans-serif; font-weight: 900; font-size: 1.3rem; color: var(--fnd-white); text-transform: uppercase; line-height: 1.1; text-align: left; }
+        .logo-img { height: 90px; width: auto; margin-right: 20px; }
+        .brand-text h1 { font-family: 'Lexend', sans-serif; font-weight: 900; font-size: 1.2rem; color: var(--fnd-white); text-transform: uppercase; line-height: 1.1; text-align: left; }
 
         /* MENU OVERLAY */
         #menu-overlay {
@@ -42,44 +41,54 @@
         .menu-btn:hover { background: var(--fnd-white); color: var(--fnd-blue); }
         .close-btn { position: absolute; top: 30px; right: 40px; font-size: 4rem; cursor: pointer; }
 
-        /* HERO */
+        /* ERO SECTION */
         .hero {
-            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 0 20px;
-            background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 0, 0, 0.9)), 
-                        url('https://images.unsplash.com/photo-1510673398445-94f476ef2cbc?q=80&w=1600');
-            background-size: cover; background-position: center; background-attachment: fixed;
+            height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; background: linear-gradient(rgba(0,51,102,0.8), rgba(1,2,4,1)), url('https://images.unsplash.com/photo-1540910419892-f0c976742663?w=1600');
+            background-size: cover; background-position: center;
         }
-        .hero h2 { font-family: 'Lexend', sans-serif; font-size: clamp(2rem, 8vw, 4.5rem); text-transform: uppercase; line-height: 1; }
 
-        /* PROGRAMMA GRID */
-        section { padding: 80px 8%; border-bottom: 1px solid #222; position: relative; }
-        .section-title { font-family: 'Lexend', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 40px; border-left: 10px solid var(--fnd-blue); padding-left: 20px; }
-
+        /* GRID BOTTONI */
+        #index { padding: 50px 8%; background: var(--fnd-dark); }
         .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
-        .program-item { 
-            background: #080a0f; border: 2px solid var(--fnd-white); padding: 20px; 
-            font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 0.85rem; 
+        .p-btn { 
+            background: transparent; border: 2px solid var(--fnd-white); padding: 25px; 
+            font-family: 'Lexend', sans-serif; font-weight: 900; font-size: 0.8rem; 
             text-transform: uppercase; text-decoration: none; color: white;
             text-align: center; transition: 0.3s;
         }
-        .program-item:hover { background: var(--fnd-white); color: var(--fnd-blue); transform: translateY(-5px); }
+        .p-btn:hover { background: var(--fnd-white); color: var(--fnd-blue); transform: scale(1.03); }
 
-        /* FOCUS SECTIONS CON FOTO DIVERSE */
-        .detail-section { min-height: 60vh; display: flex; align-items: center; background-size: cover; background-position: center; background-attachment: fixed; }
-        .overlay-card { background: rgba(0,0,0,0.9); padding: 50px; border: 1px solid #333; max-width: 800px; border-left: 5px solid var(--fnd-white); }
-        .overlay-card h3 { font-family: 'Lexend', sans-serif; font-size: 1.8rem; margin-bottom: 20px; text-transform: uppercase; color: var(--fnd-blue); background: white; display: inline-block; padding: 5px 15px; }
+        /* SEZIONI SPIEGAZIONE CON FOTO */
+        .point-section {
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            padding: 50px 8%; background-size: cover; background-position: center; background-attachment: fixed;
+            position: relative; border-bottom: 2px solid var(--fnd-white);
+        }
+        .content-card { 
+            background: rgba(0, 0, 0, 0.9); padding: 60px; 
+            border: 1px solid #333; border-left: 12px solid var(--fnd-blue);
+            max-width: 900px; width: 100%;
+        }
+        .content-card h3 { font-family: 'Lexend', sans-serif; font-size: 2.2rem; text-transform: uppercase; margin-bottom: 25px; color: var(--fnd-white); border-bottom: 2px solid var(--fnd-blue); display: inline-block; padding-bottom: 10px;}
+        .content-card p { font-size: 1.2rem; line-height: 1.8; color: #efefef; }
+        .top-link { margin-top: 30px; display: inline-block; background: var(--fnd-white); color: var(--fnd-blue); padding: 10px 25px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; }
 
         /* SFONDI SPECIFICI */
-        .bg-istituzioni { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=1600'); }
-        .bg-economia { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600'); }
-        .bg-energia { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1600'); }
-        .bg-sociale { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=1600'); }
+        .bg-1 { background-image: linear-gradient(rgba(0,45,90,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1600'); }
+        .bg-2 { background-image: linear-gradient(rgba(0,45,90,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600'); }
+        .bg-3 { background-image: linear-gradient(rgba(0,45,90,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1600'); }
+        .bg-4 { background-image: linear-gradient(rgba(0,45,90,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1554224155-169641357599?w=1600'); }
+        .bg-5 { background-image: linear-gradient(rgba(0,45,90,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1600'); }
+        .bg-6 { background-image: linear-gradient(rgba(0,45,90,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1589262804704-c5aa9e6de39a?w=1600'); }
 
-        .btn-cta { background: var(--fnd-white); color: var(--fnd-blue); padding: 20px 50px; text-decoration: none; font-weight: 900; text-transform: uppercase; display: inline-block; margin-top: 30px; border: 2px solid var(--fnd-white); transition: 0.3s; }
-        .btn-cta:hover { background: transparent; color: var(--fnd-white); }
+        footer { padding: 60px; text-align: center; background: #000; border-top: 5px solid var(--fnd-blue); }
 
-        footer { padding: 40px; text-align: center; border-top: 4px solid var(--fnd-blue); background: #000; }
+        @media (max-width: 768px) {
+            .content-card { padding: 30px; }
+            .content-card h3 { font-size: 1.5rem; }
+            .logo-img { height: 70px; }
+        }
     </style>
 </head>
 <body>
@@ -87,8 +96,8 @@
     <div id="menu-overlay">
         <span class="close-btn" onclick="toggleNav()">&times;</span>
         <a href="#home" class="menu-btn" onclick="toggleNav()">Home</a>
-        <a href="#programma" class="menu-btn" onclick="toggleNav()">Programma</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="menu-btn" style="background: white; color: var(--fnd-blue);">Aderisci</a>
+        <a href="#index" class="menu-btn" onclick="toggleNav()">Programma</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="menu-btn" style="background:white; color:var(--fnd-blue)">Aderisci</a>
     </div>
 
     <header>
@@ -99,70 +108,38 @@
     </header>
 
     <section class="hero" id="home">
-        <h2>OLTRE GLI SCHEMI.<br>PER LA CONCRETEZZA.</h2>
+        <h2 style="font-family:'Lexend'; font-size: 3rem; text-transform: uppercase;">Programma Politico</h2>
+        <p style="margin-top:20px; letter-spacing:3px;">OLTRE LE CORRENTI, VERSO LA CONCRETEZZA</p>
     </section>
 
-    <section id="programma">
-        <h2 class="section-title">Programma Politico</h2>
+    <section id="index">
         <div class="program-grid">
-            <a href="#riforma-stato" class="program-item">Semi-Parlamentarismo</a>
-            <a href="#riforma-stato" class="program-item">Semi-Federalismo</a>
-            <a href="#usi-focus" class="program-item">Sistema U.S.I.</a>
-            <a href="#economia-focus" class="program-item">Salario Minimo</a>
-            <a href="#economia-focus" class="program-item">Abbassamento Tasse</a>
-            <a href="#istruzione-focus" class="program-item">Riforma Istruzione</a>
-            <a href="#energia-focus" class="program-item">Nucleare Nuova Gen</a>
-            <a href="#diritti-focus" class="program-item">Matrimonio Egualitario</a>
-            <a href="#diritti-focus" class="program-item">Fine Vita</a>
+            <a href="#p1" class="p-btn">Semi-Parlamentarismo</a>
+            <a href="#p2" class="p-btn">Semi-Federalismo</a>
+            <a href="#p3" class="p-btn">Sistema U.S.I.</a>
+            <a href="#p4" class="p-btn">Salario Minimo</a>
+            <a href="#p5" class="p-btn">Nucleare Nuova Gen</a>
+            <a href="#p6" class="p-btn">Diritti & Fine Vita</a>
         </div>
     </section>
 
-    <section id="riforma-stato" class="detail-section bg-istituzioni">
-        <div class="overlay-card">
-            <h3>Lo Stato Moderno</h3>
-            <p><strong>Semi-Parlamentarismo e Semi-Federalismo:</strong> Proponiamo un'architettura istituzionale che unisca la stabilità di un esecutivo forte alla vicinanza territoriale del federalismo. Più potere alle regioni, più responsabilità al centro.</p>
+    <section id="p1" class="point-section bg-1">
+        <div class="content-card">
+            <h3>Semi-Parlamentarismo</h3>
+            <p>L'attuale sistema politico è lento e ostaggio dei veti incrociati. Il FND propone una riforma in senso semi-parlamentare: un Governo con poteri decisionali chiari e stabili, eletto per fare, ma costantemente bilanciato da un'assemblea sovrana che vigila sulla trasparenza. Efficienza nell'azione, rigore nel controllo.</p>
+            <a href="#index" class="top-link">Torna su ↑</a>
         </div>
     </section>
 
-    <section id="usi-focus" class="detail-section bg-sociale">
-        <div class="overlay-card">
-            <h3>U.S.I. Operativo</h3>
-            <p><strong>Ufficio Segnalazioni e Intervento:</strong> Il cuore tecnologico del Fronte. Monitoraggio costante del territorio, tempi di risposta certi e un sistema premiante per i cittadini che contribuiscono al decoro urbano.</p>
+    <section id="p2" class="point-section bg-2">
+        <div class="content-card">
+            <h3>Semi-Federalismo</h3>
+            <p>L'Italia è una nazione di territori unici. Il Semi-Federalismo sposta la gestione delle risorse e della burocrazia vicina ai cittadini. Le Regioni diventano motori economici autonomi, mentre lo Stato centrale si concentra esclusivamente sulle funzioni vitali: Difesa, Ordine Pubblico e Infrastrutture Strategiche.</p>
+            <a href="#index" class="top-link">Torna su ↑</a>
         </div>
     </section>
 
-    <section id="economia-focus" class="detail-section bg-economia">
-        <div class="overlay-card">
-            <h3>Economia e Lavoro</h3>
-            <p><strong>Salario Minimo e Taglio Tasse:</strong> Dignità per ogni lavoratore e respiro per le imprese. Abbassiamo la pressione fiscale per favorire la natalità e la crescita delle infrastrutture nazionali.</p>
-        </div>
-    </section>
-
-    <section id="energia-focus" class="detail-section bg-energia">
-        <div class="overlay-card">
-            <h3>Indipendenza Energetica</h3>
-            <p><strong>Nucleare di Nuova Generazione:</strong> Per un'Italia sovrana energeticamente. Investiamo nel mix energetico pulito e sicuro, collaborando con l'UE per abbattere i costi delle bollette per famiglie e industrie.</p>
-        </div>
-    </section>
-
-    <section id="diritti-focus" class="detail-section bg-istituzioni">
-        <div class="overlay-card">
-            <h3>Libertà Civili</h3>
-            <p><strong>Matrimonio Egualitario e Fine Vita:</strong> Un ramo politico a sé riconosce che la libertà individuale non ha colore. Sosteniamo i diritti civili con pragmatismo, garantendo a ogni cittadino il diritto di scegliere il proprio futuro.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="btn-cta">Aderisci al Fronte</a>
-        </div>
-    </section>
-
-    <footer>
-        <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" alt="Logo" style="height: 50px; margin-bottom: 20px;">
-        <p>FND &copy; 2026 | Indipendenza e Azione.</p>
-    </footer>
-
-    <script>
-        function toggleNav() {
-            const overlay = document.getElementById("menu-overlay");
-            overlay.style.display = (overlay.style.display === "flex") ? "none" : "flex";
-        }
-    </script>
-</body>
-</html>
+    <section id="p3" class="point-section bg-3">
+        <div class="content-card">
+            <h3>Sistema U.S.I.</h3>
+            <p>L
