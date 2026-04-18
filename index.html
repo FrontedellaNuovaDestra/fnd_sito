@@ -7,160 +7,93 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #004a99;
-            --accent: #cc0000;
-            --dark: #050505;
+            --primary-blu: #003366;
+            --accent-red: #cc0000;
+            --dark-bg: #030303;
+            --text-silver: #e0e0e0;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Inter', sans-serif; background: var(--dark); color: white; line-height: 1.4; overflow-x: hidden; }
+        /* Reset e Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--dark-bg); 
+            color: var(--text-silver); 
+            overflow-x: hidden; 
+        }
 
-        /* HEADER & LOGO GIGANTE */
+        /* HEADER MONUMENTALE */
         header {
-            position: fixed; top: 0; width: 100%; z-index: 9999;
-            padding: 20px; background: rgba(0,0,0,0.85);
-            display: flex; align-items: center; justify-content: flex-start;
-            border-bottom: 2px solid var(--accent);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 15px 5%; 
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 3px solid var(--accent-red);
+            display: flex; align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .brand-trigger { 
-            display: flex; align-items: center; cursor: pointer; border: none; background: none; text-align: left;
+        .brand-link { 
+            display: flex; align-items: center; cursor: pointer; 
+            text-decoration: none; border: none; background: none;
         }
         
         .logo-img { 
-            height: 110px; /* Logo molto più grande */
+            height: 100px; /* Logo Ingrandito */
             width: auto; 
-            margin-right: 15px;
-            filter: drop-shadow(0 0 10px rgba(204,0,0,0.5));
+            margin-right: 20px;
+            filter: drop-shadow(0 0 8px var(--accent-red));
+            transition: transform 0.3s;
+        }
+        .brand-link:active .logo-img { transform: scale(0.95); }
+
+        .brand-title { 
+            text-align: left; line-height: 1;
+            font-family: 'Lexend', sans-serif; font-weight: 900; 
+            font-size: 1.3rem; color: white;
+            text-transform: uppercase; letter-spacing: 1px;
         }
 
-        .brand-text { 
-            font-family: 'Lexend', sans-serif; font-weight: 900; font-size: 1.4rem; 
-            color: white; text-transform: uppercase; line-height: 1; letter-spacing: 1px;
-        }
-
-        /* MENU OVERLAY CORRETTO */
+        /* MENU OVERLAY FULLSCREEN */
         #menu-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.98); display: none; flex-direction: column;
-            justify-content: center; align-items: center; z-index: 10000;
+            justify-content: center; align-items: center; z-index: 2000;
         }
         #menu-overlay a {
-            font-family: 'Lexend', sans-serif; font-size: 2rem; color: white;
-            text-decoration: none; margin: 20px 0; text-transform: uppercase; font-weight: 900;
+            font-family: 'Lexend', sans-serif; font-size: 2.2rem; color: white;
+            text-decoration: none; margin: 20px 0; text-transform: uppercase; 
+            font-weight: 900; transition: 0.3s;
         }
-        .close-btn { position: absolute; top: 30px; right: 30px; font-size: 3rem; color: var(--accent); cursor: pointer; }
+        #menu-overlay a:hover { color: var(--accent-red); transform: scale(1.1); }
+        .close-btn { position: absolute; top: 40px; right: 40px; font-size: 3.5rem; color: var(--accent-red); cursor: pointer; }
 
-        /* HERO CON SFONDO E TESTO PROTETTO */
+        /* HERO SECTION CON FALLBACK DI COLORE */
         .hero {
-            height: 100vh; position: relative;
-            display: flex; flex-direction: column; justify-content: center; 
-            align-items: center; text-align: center; padding: 0 20px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1518005020470-58b73f830490?auto=format&fit=crop&w=1600&q=80');
+            height: 100vh; width: 100%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 0 20px;
+            /* Se l'immagine non carica, il gradiente blu-rosso mantiene lo stile */
+            background: linear-gradient(135deg, rgba(0,51,102,0.85) 0%, rgba(204,0,0,0.4) 100%), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop');
             background-size: cover; background-position: center;
         }
 
         .hero h1 { 
-            font-family: 'Lexend', sans-serif; font-size: clamp(2rem, 10vw, 4.5rem); 
-            text-transform: uppercase; margin-top: 120px; /* Spazio per il logo */
-            line-height: 1; text-shadow: 2px 2px 20px rgba(0,0,0,1);
+            font-family: 'Lexend', sans-serif; font-size: clamp(2.3rem, 10vw, 4.8rem); 
+            text-transform: uppercase; margin-top: 120px; letter-spacing: -1px;
+            line-height: 1; text-shadow: 3px 3px 20px rgba(0,0,0,0.9);
         }
 
-        /* DASHBOARD */
-        .dashboard { display: flex; gap: 10px; margin: 30px 0; }
-        .stat { background: rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 5px; border-left: 4px solid var(--accent); backdrop-filter: blur(10px); }
-        .stat-val { display: block; font-size: 1.5rem; font-weight: 900; color: var(--accent); }
-        .stat-lab { font-size: 0.6rem; text-transform: uppercase; }
-
-        /* SEZIONI PULITE */
-        .content-section { padding: 80px 25px; border-bottom: 1px solid #222; }
-        .section-title { font-family: 'Lexend', sans-serif; font-size: 2.2rem; color: var(--accent); margin-bottom: 20px; text-transform: uppercase; }
-        .text-card { background: #111; padding: 25px; border-radius: 10px; border: 1px solid #333; margin-bottom: 20px; }
-
-        .btn-action {
-            background: var(--accent); color: white; padding: 20px 30px;
-            text-decoration: none; font-weight: 900; text-transform: uppercase;
-            display: block; text-align: center; border-radius: 5px; margin-top: 20px;
+        /* DASHBOARD LIVE */
+        .dashboard { display: flex; gap: 15px; margin-top: 40px; flex-wrap: wrap; justify-content: center; }
+        .stat-box { 
+            background: rgba(0,0,0,0.6); padding: 20px 30px; border-radius: 12px; 
+            border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(15px);
+            min-width: 150px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
+        .stat-num { display: block; font-size: 2rem; font-weight: 900; color: var(--accent-red); margin-bottom: 5px; }
+        .stat-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #aaa; }
 
-        footer { padding: 40px; text-align: center; color: #666; font-size: 0.8rem; }
-    </style>
-</head>
-<body>
-
-    <div id="menu-overlay">
-        <span class="close-btn" onclick="closeNav()">&times;</span>
-        <a href="#" onclick="closeNav()">Home</a>
-        <a href="#chi-siamo" onclick="closeNav()">Chi Siamo</a>
-        <a href="#usi" onclick="closeNav()">Progetto U.S.I.</a>
-        <a href="#obiettivi" onclick="closeNav()">Obiettivi</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" style="color:var(--accent)">Aderisci</a>
-    </div>
-
-    <header>
-        <div class="brand-trigger" onclick="openNav()">
-            <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" alt="FND" class="logo-img">
-            <div class="brand-text">FRONTE DELLA<br>NUOVA DESTRA</div>
-        </div>
-    </header>
-
-    <section class="hero">
-        <h1>RIPRENDIAMOCI<br>IL FUTURO</h1>
-        
-        <div class="dashboard">
-            <div class="stat"><span class="stat-val" id="m-count">400</span><span class="stat-lab">Militanti</span></div>
-            <div class="stat"><span class="stat-val" id="t-live">--</span><span class="stat-lab">In Marcia</span></div>
-        </div>
-
-        <a href="#usi" class="btn-action">Esplora Progetto U.S.I.</a>
-    </section>
-
-    <section id="chi-siamo" class="content-section">
-        <h2 class="section-title">Chi Siamo</h2>
-        <div class="text-card">
-            <p>Siamo l'avanguardia della concretezza. Il <strong>Fronte della Nuova Destra</strong> nasce per chi non accetta più il declino. Non siamo qui per discutere, ma per imporre ordine e merito nelle nostre città.</p>
-        </div>
-    </section>
-
-    <section id="usi" class="content-section" style="background: #0a0a0a;">
-        <h2 class="section-title">Progetto U.S.I.</h2>
-        <div class="text-card">
-            <h3 style="color:var(--accent); margin-bottom:10px;">COSA FACCIAMO:</h3>
-            <p>L'Ufficio Segnalazioni e Intervento mappa il degrado tramite intelligence territoriale e costringe gli enti pubblici all'intervento immediato tramite pressione legale.</p>
-        </div>
-    </section>
-
-    <section id="obiettivi" class="content-section">
-        <h2 class="section-title">I Nostri Obiettivi</h2>
-        <div class="text-card">
-            <p>• Ripristino del Decoro Urbano<br>• Responsabilità dei Dirigenti<br>• Sistema Premiale Civitas<br>• Identità e Sicurezza</p>
-        </div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="btn-action">Aderisci al Movimento</a>
-    </section>
-
-    <footer>
-        <p>FND &copy; 2026 | Oltre le parole, la concretezza.</p>
-    </footer>
-
-    <script>
-        function openNav() { document.getElementById("menu-overlay").style.display = "flex"; }
-        function closeNav() { document.getElementById("menu-overlay").style.display = "none"; }
-
-        function updateStats() {
-            const start = new Date('2025-11-26T09:00:00').getTime();
-            const now = new Date().getTime();
-            const diff = Math.floor((now - start) / 1000);
-            
-            const d = Math.floor(diff / 86400);
-            const h = Math.floor((diff % 86400) / 3600);
-            const m = Math.floor((diff % 3600) / 60);
-            
-            document.getElementById('t-live').innerHTML = d + "g " + h + "o";
-            document.getElementById('m-count').innerHTML = 400 + Math.floor(diff / 43200);
-        }
-        setInterval(updateStats, 1000);
-        updateStats();
-    </script>
-</body>
-</html>
+        /* SEZIONI DI CONTENUTO */
+        section.info-area { padding:
