@@ -6,109 +6,159 @@
     <title>FND | Fronte della Nuova Destra</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #003366; --accent: #cc0000; --dark: #050505; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--dark); color: white; line-height: 1.6; overflow-x: hidden; }
+        :root {
+            --fnd-blue: #003366;
+            --fnd-white: #ffffff;
+            --fnd-dark: #010204;
+            --fnd-grey: #1a1a1a;
+        }
 
-        /* Header con Logo Gigante e Scritta */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--fnd-dark); color: var(--fnd-white); line-height: 1.6; }
+
+        /* HEADER ISTITUZIONALE */
         header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 15px 5%; background: rgba(0,0,0,0.95);
-            display: flex; align-items: center; border-bottom: 3px solid var(--accent);
+            padding: 15px 5%; background: rgba(0, 0, 0, 0.98);
+            display: flex; align-items: center; border-bottom: 3px solid var(--fnd-white);
         }
-        .brand { display: flex; align-items: center; cursor: pointer; background: none; border: none; text-align: left; }
-        .logo-img { height: 100px; width: auto; margin-right: 20px; filter: drop-shadow(0 0 10px var(--accent)); }
-        .brand-text { font-family: 'Lexend', sans-serif; font-weight: 900; font-size: 1.3rem; color: white; text-transform: uppercase; line-height: 1; }
 
-        /* Menu Overlay */
-        #menu {
+        .brand { display: flex; align-items: center; cursor: pointer; text-decoration: none; border: none; background: none; }
+        .logo-img { height: 110px; width: auto; margin-right: 25px; }
+        .brand-text h1 { font-family: 'Lexend', sans-serif; font-weight: 900; font-size: 1.3rem; color: var(--fnd-white); text-transform: uppercase; line-height: 1.1; text-align: left; }
+
+        /* MENU OVERLAY CON PULSANTI BORDATI */
+        #menu-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.98); display: none; flex-direction: column;
+            background: rgba(1, 2, 4, 0.99); display: none; flex-direction: column;
             justify-content: center; align-items: center; z-index: 2000;
         }
-        #menu a { font-family: 'Lexend', sans-serif; font-size: 2.2rem; color: white; text-decoration: none; margin: 15px 0; text-transform: uppercase; font-weight: 900; }
-        .close { position: absolute; top: 30px; right: 40px; font-size: 3.5rem; color: var(--accent); cursor: pointer; }
 
-        /* Hero con Immagine di Sfondo Protetta */
+        .menu-btn {
+            font-family: 'Lexend', sans-serif; font-size: 1.1rem; color: var(--fnd-white);
+            text-decoration: none; margin: 8px 0; text-transform: uppercase; font-weight: 900;
+            padding: 16px 40px; border: 2px solid var(--fnd-white); width: 340px; text-align: center;
+            transition: 0.2s; letter-spacing: 2px;
+        }
+        .menu-btn:hover { background: var(--fnd-white); color: var(--fnd-blue); }
+        .close-btn { position: absolute; top: 30px; right: 40px; font-size: 4rem; color: var(--fnd-white); cursor: pointer; }
+
+        /* HERO SECTION */
         .hero {
             height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 20px;
-            background: linear-gradient(rgba(0,51,102,0.75), rgba(204,0,0,0.45)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop');
-            background-size: cover; background-position: center;
+            text-align: center; padding: 0 20px;
+            background: linear-gradient(rgba(0, 51, 102, 0.75), rgba(0, 0, 0, 0.9)), 
+                        url('https://images.unsplash.com/photo-1510673398445-94f476ef2cbc?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: fixed;
         }
-        .hero h1 { font-family: 'Lexend', sans-serif; font-size: clamp(2rem, 9vw, 4.5rem); text-transform: uppercase; margin-top: 100px; line-height: 1; text-shadow: 2px 2px 15px rgba(0,0,0,0.8); }
+        .hero h2 { font-family: 'Lexend', sans-serif; font-size: clamp(2rem, 8vw, 4.5rem); text-transform: uppercase; margin-top: 100px; line-height: 1; }
 
-        /* Sezioni Info */
-        section { padding: 90px 10%; border-bottom: 1px solid #222; }
-        .title { font-family: 'Lexend', sans-serif; font-size: 2.6rem; color: var(--accent); margin-bottom: 30px; text-transform: uppercase; }
-        .card { background: rgba(255,255,255,0.03); padding: 35px; border-radius: 15px; border: 1px solid #333; }
+        /* SEZIONI */
+        section { padding: 80px 8%; border-bottom: 1px solid var(--fnd-grey); }
+        .section-title { font-family: 'Lexend', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 40px; border-left: 10px solid var(--fnd-white); padding-left: 20px; }
 
-        /* Bottone d'Azione */
-        .btn { background: var(--accent); color: white; padding: 22px 45px; text-decoration: none; font-weight: 900; border-radius: 5px; display: inline-block; text-transform: uppercase; margin-top: 25px; transition: 0.3s; box-shadow: 0 5px 15px rgba(204,0,0,0.3); }
-        .btn:hover { background: white; color: var(--accent); transform: translateY(-3px); }
+        /* GRID PROGRAMMA */
+        .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; }
+        .program-item { 
+            background: #080a0f; border: 1px solid #333; padding: 20px; 
+            font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 0.9rem; 
+            text-transform: uppercase; display: flex; align-items: center; justify-content: center;
+            text-align: center; transition: 0.3s;
+        }
+        .program-item:hover { border-color: var(--fnd-white); background: var(--fnd-blue); }
 
-        footer { padding: 50px; text-align: center; border-top: 1px solid #222; font-size: 0.9rem; }
+        /* CARDS E TESTI */
+        .card-main { background: #080a0f; padding: 40px; border: 1px solid #222; margin-bottom: 30px; }
+        .btn-cta {
+            background: var(--fnd-white); color: var(--fnd-blue); padding: 20px 50px;
+            text-decoration: none; font-weight: 900; text-transform: uppercase;
+            display: inline-block; margin-top: 30px; transition: 0.3s; border: 2px solid var(--fnd-white);
+        }
+        .btn-cta:hover { background: transparent; color: var(--fnd-white); }
+
+        footer { padding: 40px; text-align: center; border-top: 4px solid var(--fnd-blue); background: #000; }
+
+        @media (max-width: 768px) {
+            .logo-img { height: 85px; }
+            .hero h2 { font-size: 2.2rem; }
+            .section-title { font-size: 1.6rem; }
+        }
     </style>
 </head>
 <body>
 
-    <div id="menu">
-        <span class="close" onclick="toggleMenu()">&times;</span>
-        <a href="#" onclick="toggleMenu()">Home</a>
-        <a href="#chi-siamo" onclick="toggleMenu()">Chi Siamo</a>
-        <a href="#usi" onclick="toggleMenu()">Progetto U.S.I.</a>
-        <a href="#obiettivi" onclick="toggleMenu()">Obiettivi</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" style="color:var(--accent)">Aderisci Ora</a>
+    <div id="menu-overlay">
+        <span class="close-btn" onclick="toggleNav()">&times;</span>
+        <a href="#home" class="menu-btn" onclick="toggleNav()">Home</a>
+        <a href="#manifesto" class="menu-btn" onclick="toggleNav()">Manifesto</a>
+        <a href="#programma" class="menu-btn" onclick="toggleNav()">Programma Politico</a>
+        <a href="#usi" class="menu-btn" onclick="toggleNav()">Sistema U.S.I.</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="menu-btn" style="background: white; color: var(--fnd-blue);">Aderisci Ora</a>
     </div>
 
     <header>
-        <button class="brand" onclick="toggleMenu()">
-            <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" alt="FND Logo" class="logo-img">
-            <div class="brand-text">FRONTE DELLA<br>NUOVA DESTRA</div>
+        <button class="brand" onclick="toggleNav()">
+            <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" alt="Logo FND" class="logo-img">
+            <div class="brand-text">
+                <h1>FRONTE DELLA<br>NUOVA DESTRA</h1>
+            </div>
         </button>
     </header>
 
-    <div class="hero">
-        <h1>RIPRENDIAMOCI<br>IL FUTURO</h1>
-        <p style="margin-top: 25px; font-size: 1.3rem; max-width: 700px; font-weight: bold;">Avanguardia politica per il decoro, l'ordine e il merito.</p>
-        <a href="#usi" class="btn">Scopri l'U.S.I.</a>
-    </div>
+    <section class="hero" id="home">
+        <h2>RIPRENDIAMOCI L'ITALIA,<br>METRO PER METRO.</h2>
+        <a href="#programma" class="btn-cta">Guarda il Programma</a>
+    </section>
 
-    <section id="chi-siamo">
-        <h2 class="title">Chi Siamo</h2>
-        <div class="card">
-            <p style="font-size: 1.2rem; line-height: 1.8;">Siamo l'avanguardia operativa della concretezza. Il Fronte della Nuova Destra nasce per chi rifiuta il declino urbano e civile, agendo sul territorio per imporre ordine e responsabilità attraverso l'impegno costante dei propri militanti.</p>
+    <section id="manifesto">
+        <h2 class="section-title">Chi Siamo</h2>
+        <div class="card-main">
+            <p style="font-size: 1.1rem;">
+                Il Fronte della Nuova Destra è un ramo politico a sé stante che non segue le correnti classiche. Rifiutiamo la paralisi ideologica per abbracciare la concretezza operativa. Essere la Nuova Destra significa agire ora per proteggere ciò che amiamo.
+            </p>
         </div>
     </section>
 
-    <section id="usi" style="background: #080808;">
-        <h2 class="title">Progetto U.S.I.</h2>
-        <div class="card">
-            <h3 style="color: var(--accent); margin-bottom: 20px; font-size: 1.5rem;">UFFICIO SEGNALAZIONI E INTERVENTO</h3>
-            <p style="font-size: 1.1rem;">L'U.S.I. mappa sistematicamente il degrado e forza l'intervento degli enti pubblici preposti. Monitoriamo i tempi di risposta: se lo Stato non agisce, subentra la nostra pressione legale e la denuncia pubblica.</p>
+    <section id="programma">
+        <h2 class="section-title">Programma Politico</h2>
+        <div class="program-grid">
+            <div class="program-item">Semi-Parlamentarismo</div>
+            <div class="program-item">Semi-Federalismo</div>
+            <div class="program-item">Sistema U.S.I.</div>
+            <div class="program-item">Salario Minimo</div>
+            <div class="program-item">Abbassamento Tasse</div>
+            <div class="program-item">Supporto Imprese & Natalità</div>
+            <div class="program-item">Infrastrutture & Trasporti</div>
+            <div class="program-item">Better Education</div>
+            <div class="program-item">Remigrazione + UE</div>
+            <div class="program-item">Nucleare Nuova Gen</div>
+            <div class="program-item">Mix Energetico</div>
+            <div class="program-item">Europeismo a Livelli</div>
+            <div class="program-item">Atlantismo Moderato</div>
+            <div class="program-item">Voto Fuorisede</div>
+            <div class="program-item">Matrimonio Egualitario</div>
+            <div class="program-item">Fine Vita</div>
         </div>
     </section>
 
-    <section id="obiettivi" style="text-align: center;">
-        <h2 class="title">I Nostri Obiettivi</h2>
-        <div class="card" style="font-size: 1.4rem; font-weight: 800; border-color: var(--accent);">
-            <p>• DECORO URBANO TOTALE</p>
-            <p>• RESPONSABILITÀ DEI DIRIGENTI</p>
-            <p>• SISTEMA PREMIALE CIVITAS</p>
-            <p>• SICUREZZA E IDENTITÀ</p>
+    <section id="usi" style="background: #030508;">
+        <h2 class="section-title">Sistema U.S.I.</h2>
+        <div class="card-main">
+            <p><strong>Ufficio Segnalazioni e Intervento:</strong> lo Stato torna sul territorio. Ogni segnalazione è tracciata, ogni inefficienza viene sanzionata. Chi si prende cura della città ottiene premi concreti.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="btn-cta">Diventa un Militante Operativo</a>
         </div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="btn">Aderisci al Movimento</a>
     </section>
 
     <footer>
-        <p>FRONTE DELLA NUOVA DESTRA &copy; 2026 | Oltre le parole, la concretezza.</p>
+        <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" alt="Logo" style="height: 60px; margin-bottom: 20px;">
+        <p>Fronte della Nuova Destra &copy; 2026 | Indipendenza e Concretezza.</p>
     </footer>
 
     <script>
-        function toggleMenu() {
-            const m = document.getElementById('menu');
-            m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+        function toggleNav() {
+            const overlay = document.getElementById("menu-overlay");
+            overlay.style.display = (overlay.style.display === "flex") ? "none" : "flex";
         }
     </script>
 </body>
