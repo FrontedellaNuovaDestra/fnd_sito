@@ -6,94 +6,110 @@
     <title>FND | Fronte della Nuova Destra</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-blu: #003366;
-            --accent-red: #cc0000;
-            --dark-bg: #030303;
-            --text-silver: #e0e0e0;
-        }
+        :root { --primary: #003366; --accent: #cc0000; --dark: #050505; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark); color: white; line-height: 1.6; overflow-x: hidden; }
 
-        /* Reset e Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--dark-bg); 
-            color: var(--text-silver); 
-            overflow-x: hidden; 
-        }
-
-        /* HEADER MONUMENTALE */
+        /* Header con Logo Gigante e Scritta */
         header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 15px 5%; 
-            background: rgba(0, 0, 0, 0.95);
-            border-bottom: 3px solid var(--accent-red);
-            display: flex; align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            padding: 15px 5%; background: rgba(0,0,0,0.95);
+            display: flex; align-items: center; border-bottom: 3px solid var(--accent);
         }
+        .brand { display: flex; align-items: center; cursor: pointer; background: none; border: none; text-align: left; }
+        .logo-img { height: 100px; width: auto; margin-right: 20px; filter: drop-shadow(0 0 10px var(--accent)); }
+        .brand-text { font-family: 'Lexend', sans-serif; font-weight: 900; font-size: 1.3rem; color: white; text-transform: uppercase; line-height: 1; }
 
-        .brand-link { 
-            display: flex; align-items: center; cursor: pointer; 
-            text-decoration: none; border: none; background: none;
-        }
-        
-        .logo-img { 
-            height: 100px; /* Logo Ingrandito */
-            width: auto; 
-            margin-right: 20px;
-            filter: drop-shadow(0 0 8px var(--accent-red));
-            transition: transform 0.3s;
-        }
-        .brand-link:active .logo-img { transform: scale(0.95); }
-
-        .brand-title { 
-            text-align: left; line-height: 1;
-            font-family: 'Lexend', sans-serif; font-weight: 900; 
-            font-size: 1.3rem; color: white;
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-
-        /* MENU OVERLAY FULLSCREEN */
-        #menu-overlay {
+        /* Menu Overlay */
+        #menu {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.98); display: none; flex-direction: column;
             justify-content: center; align-items: center; z-index: 2000;
         }
-        #menu-overlay a {
-            font-family: 'Lexend', sans-serif; font-size: 2.2rem; color: white;
-            text-decoration: none; margin: 20px 0; text-transform: uppercase; 
-            font-weight: 900; transition: 0.3s;
-        }
-        #menu-overlay a:hover { color: var(--accent-red); transform: scale(1.1); }
-        .close-btn { position: absolute; top: 40px; right: 40px; font-size: 3.5rem; color: var(--accent-red); cursor: pointer; }
+        #menu a { font-family: 'Lexend', sans-serif; font-size: 2.2rem; color: white; text-decoration: none; margin: 15px 0; text-transform: uppercase; font-weight: 900; }
+        .close { position: absolute; top: 30px; right: 40px; font-size: 3.5rem; color: var(--accent); cursor: pointer; }
 
-        /* HERO SECTION CON FALLBACK DI COLORE */
+        /* Hero con Immagine di Sfondo Protetta */
         .hero {
-            height: 100vh; width: 100%;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 0 20px;
-            /* Se l'immagine non carica, il gradiente blu-rosso mantiene lo stile */
-            background: linear-gradient(135deg, rgba(0,51,102,0.85) 0%, rgba(204,0,0,0.4) 100%), 
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 20px;
+            background: linear-gradient(rgba(0,51,102,0.75), rgba(204,0,0,0.45)), 
                         url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop');
             background-size: cover; background-position: center;
         }
+        .hero h1 { font-family: 'Lexend', sans-serif; font-size: clamp(2rem, 9vw, 4.5rem); text-transform: uppercase; margin-top: 100px; line-height: 1; text-shadow: 2px 2px 15px rgba(0,0,0,0.8); }
 
-        .hero h1 { 
-            font-family: 'Lexend', sans-serif; font-size: clamp(2.3rem, 10vw, 4.8rem); 
-            text-transform: uppercase; margin-top: 120px; letter-spacing: -1px;
-            line-height: 1; text-shadow: 3px 3px 20px rgba(0,0,0,0.9);
+        /* Sezioni Info */
+        section { padding: 90px 10%; border-bottom: 1px solid #222; }
+        .title { font-family: 'Lexend', sans-serif; font-size: 2.6rem; color: var(--accent); margin-bottom: 30px; text-transform: uppercase; }
+        .card { background: rgba(255,255,255,0.03); padding: 35px; border-radius: 15px; border: 1px solid #333; }
+
+        /* Bottone d'Azione */
+        .btn { background: var(--accent); color: white; padding: 22px 45px; text-decoration: none; font-weight: 900; border-radius: 5px; display: inline-block; text-transform: uppercase; margin-top: 25px; transition: 0.3s; box-shadow: 0 5px 15px rgba(204,0,0,0.3); }
+        .btn:hover { background: white; color: var(--accent); transform: translateY(-3px); }
+
+        footer { padding: 50px; text-align: center; border-top: 1px solid #222; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <div id="menu">
+        <span class="close" onclick="toggleMenu()">&times;</span>
+        <a href="#" onclick="toggleMenu()">Home</a>
+        <a href="#chi-siamo" onclick="toggleMenu()">Chi Siamo</a>
+        <a href="#usi" onclick="toggleMenu()">Progetto U.S.I.</a>
+        <a href="#obiettivi" onclick="toggleMenu()">Obiettivi</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" style="color:var(--accent)">Aderisci Ora</a>
+    </div>
+
+    <header>
+        <button class="brand" onclick="toggleMenu()">
+            <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" alt="FND Logo" class="logo-img">
+            <div class="brand-text">FRONTE DELLA<br>NUOVA DESTRA</div>
+        </button>
+    </header>
+
+    <div class="hero">
+        <h1>RIPRENDIAMOCI<br>IL FUTURO</h1>
+        <p style="margin-top: 25px; font-size: 1.3rem; max-width: 700px; font-weight: bold;">Avanguardia politica per il decoro, l'ordine e il merito.</p>
+        <a href="#usi" class="btn">Scopri l'U.S.I.</a>
+    </div>
+
+    <section id="chi-siamo">
+        <h2 class="title">Chi Siamo</h2>
+        <div class="card">
+            <p style="font-size: 1.2rem; line-height: 1.8;">Siamo l'avanguardia operativa della concretezza. Il Fronte della Nuova Destra nasce per chi rifiuta il declino urbano e civile, agendo sul territorio per imporre ordine e responsabilità attraverso l'impegno costante dei propri militanti.</p>
+        </div>
+    </section>
+
+    <section id="usi" style="background: #080808;">
+        <h2 class="title">Progetto U.S.I.</h2>
+        <div class="card">
+            <h3 style="color: var(--accent); margin-bottom: 20px; font-size: 1.5rem;">UFFICIO SEGNALAZIONI E INTERVENTO</h3>
+            <p style="font-size: 1.1rem;">L'U.S.I. mappa sistematicamente il degrado e forza l'intervento degli enti pubblici preposti. Monitoriamo i tempi di risposta: se lo Stato non agisce, subentra la nostra pressione legale e la denuncia pubblica.</p>
+        </div>
+    </section>
+
+    <section id="obiettivi" style="text-align: center;">
+        <h2 class="title">I Nostri Obiettivi</h2>
+        <div class="card" style="font-size: 1.4rem; font-weight: 800; border-color: var(--accent);">
+            <p>• DECORO URBANO TOTALE</p>
+            <p>• RESPONSABILITÀ DEI DIRIGENTI</p>
+            <p>• SISTEMA PREMIALE CIVITAS</p>
+            <p>• SICUREZZA E IDENTITÀ</p>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="btn">Aderisci al Movimento</a>
+    </section>
+
+    <footer>
+        <p>FRONTE DELLA NUOVA DESTRA &copy; 2026 | Oltre le parole, la concretezza.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const m = document.getElementById('menu');
+            m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
         }
-
-        /* DASHBOARD LIVE */
-        .dashboard { display: flex; gap: 15px; margin-top: 40px; flex-wrap: wrap; justify-content: center; }
-        .stat-box { 
-            background: rgba(0,0,0,0.6); padding: 20px 30px; border-radius: 12px; 
-            border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(15px);
-            min-width: 150px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .stat-num { display: block; font-size: 2rem; font-weight: 900; color: var(--accent-red); margin-bottom: 5px; }
-        .stat-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #aaa; }
-
-        /* SEZIONI DI CONTENUTO */
-        section.info-area { padding:
+    </script>
+</body>
+</html>
