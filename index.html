@@ -3,196 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fronte della Nuova Destra | Oltre le Parole</title>
+    <title>FND | Fronte della Nuova Destra</title>
     <style>
         :root {
-            --blu-fnd: #004a99;
-            --rosso-fnd: #cc0000;
+            --blu: #004a99;
+            --rosso: #cc0000;
             --bianco: #ffffff;
-            --grigio-chiaro: #f4f4f4;
-            --testo: #333333;
+            --grigio: #f8f9fa;
+            --testo: #1a1a1a;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Lexend', sans-serif;
             margin: 0;
             padding: 0;
             color: var(--testo);
-            line-height: 1.6;
+            background-color: var(--bianco);
+            scroll-behavior: smooth;
         }
 
-        /* Header */
+        /* Navbar */
         header {
-            background-color: var(--blu-fnd);
-            padding: 1rem 5%;
+            background: rgba(0, 74, 153, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .logo-area {
-            color: white;
-            font-weight: bold;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-        }
+        .logo { color: white; font-weight: 800; font-size: 1.6rem; letter-spacing: 1px; }
 
-        .btn-header {
-            background-color: var(--rosso-fnd);
+        .btn-join {
+            background: var(--rosso);
             color: white;
-            padding: 0.6rem 1.2rem;
+            padding: 10px 20px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
             transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 74, 153, 0.8), rgba(0, 74, 153, 0.8)), url('https://images.unsplash.com/photo-1555914309-4458f6689d70?auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(rgba(0, 74, 153, 0.85), rgba(0, 74, 153, 0.85)), 
+                        url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
-            height: 80vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
-            padding: 0 10%;
+            padding: 20px;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
+        .hero h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: -1px; line-height: 1.1; }
+        .hero p { font-size: 1.3rem; margin: 20px 0; max-width: 700px; opacity: 0.9; }
 
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-        }
-
-        /* Sezione USI */
-        .usi-section {
-            padding: 4rem 10%;
-            background-color: var(--bianco);
-        }
-
-        .usi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        /* Dashboard Live */
+        .live-dashboard {
+            display: flex;
             gap: 20px;
             margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .card {
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            text-align: center;
-            transition: 0.3s;
+            border-radius: 15px;
+            min-width: 180px;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .stat-card span { display: block; }
+        .stat-label { font-size: 0.75rem; text-transform: uppercase; color: #ddd; margin-bottom: 5px; }
+        .stat-value { font-size: 1.4rem; font-weight: bold; }
+
+        /* Sezione Chi Siamo */
+        .section { padding: 80px 10%; }
+        .section-title { color: var(--blu); font-size: 2.5rem; text-align: center; margin-bottom: 40px; }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
         }
 
-        .card h3 { color: var(--blu-fnd); }
+        .about-text h3 { color: var(--rosso); font-size: 1.8rem; }
 
-        /* Call to Action Section */
-        .cta-section {
-            background-color: var(--grigio-chiaro);
-            padding: 4rem 10%;
-            text-align: center;
+        /* Obiettivi */
+        .objectives {
+            background: var(--grigio);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        .btn-main {
-            display: inline-block;
-            background-color: var(--blu-fnd);
-            color: white;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
+        .obj-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--blu);
         }
 
         /* Footer */
-        footer {
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-        }
-
-        .motto { color: var(--rosso-fnd); font-weight: bold; }
+        footer { background: #111; color: white; padding: 40px; text-align: center; }
+        .motto-final { color: var(--rosso); font-weight: bold; font-size: 1.2rem; margin-top: 10px; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .section { padding: 50px 5%; }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <div class="logo-area">
-            FND
-        </div>
-        <a href="#unisciti" class="btn-header">UNISCITI ORA</a>
+        <div class="logo">FND</div>
+        <a href="#unisciti" class="btn-join">Unisciti Ora</a>
     </header>
 
     <section class="hero">
-        <h1>Riprendiamoci il Futuro</h1>
-        <p>Ordine, Libertà e Concretezza per l'Italia di domani. Entra a far parte del Fronte della Nuova Destra.</p>
-        <a href="#usi" class="btn-header" style="font-size: 1.2rem; padding: 1rem 2rem;">PROGETTO U.S.I.</a>
+        <h1>RIPRENDIAMOCI<br>IL FUTURO</h1>
+        <p>Ordine, Libertà e la forza della Concretezza. Non siamo qui per promettere, ma per costruire.</p>
+        
+        <div class="live-dashboard">
+            <div class="stat-card">
+                <span class="stat-label">Attivi da</span>
+                <span class="stat-value" id="timer-live">--</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Militanti</span>
+                <span class="stat-value" id="count-live">--</span>
+            </div>
+        </div>
+
+        <a href="#unisciti" class="btn-join" style="margin-top: 40px; padding: 15px 40px; font-size: 1.1rem;">Inizia Qui</a>
     </section>
 
-    <section id="usi" class="usi-section">
-        <h2 style="text-align: center; color: var(--blu-fnd); font-size: 2.5rem;">SISTEMA U.S.I.</h2>
-        <p style="text-align: center; max-width: 700px; margin: 0 auto;">Il nostro primo atto concreto per eliminare il degrado urbano e premiare i cittadini attivi.</p>
-        
-        <div class="usi-grid">
-            <div class="card">
-                <h3>📸 Segnala</h3>
-                <p>Scatta una foto al degrado urbano tramite la nostra piattaforma geolocalizzata.</p>
+    <section id="chi-siamo" class="section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 style="color: var(--blu); font-size: 2.5rem;">Chi Siamo</h2>
+                <p>Il <strong>Fronte della Nuova Destra</strong> nasce dall'esigenza di una nuova classe dirigente: giovane, preparata e stanca dell'immobilismo burocratico.</p>
+                <p>Lo abbiamo creato perché crediamo che la politica debba tornare ad essere uno strumento operativo nelle mani dei cittadini. Non siamo un partito tradizionale, siamo un'avanguardia della concretezza.</p>
+                <h3>Il nostro scopo?</h3>
+                <p>Restituire decoro alle nostre città, premiare il merito e garantire che chi ha la responsabilità pubblica risponda finalmente dei propri risultati.</p>
             </div>
-            <div class="card">
-                <h3>🤖 Elabora</h3>
-                <p>L'IA indirizza la pratica al dirigente responsabile senza rimpalli burocratici.</p>
-            </div>
-            <div class="card">
-                <h3>🛠️ Intervieni</h3>
-                <p>Monitoraggio pubblico dell'intervento. Se lo Stato non risponde, il dirigente paga.</p>
-            </div>
-            <div class="card">
-                <h3>🛒 Guadagna</h3>
-                <p>Ricevi punti "Civitas" convertibili in buoni spesa nei negozi locali.</p>
+            <div class="obj-list">
+                <div class="obj-card">
+                    <h4>🛡️ Decoro Urbano</h4>
+                    <p>Tramite il progetto U.S.I., eliminiamo il degrado premiando i cittadini attivi.</p>
+                </div>
+                <div class="obj-card">
+                    <h4>🚀 Merito Libero</h4>
+                    <p>Meno tasse e burocrazia per chi crea valore e investe nel futuro.</p>
+                </div>
+                <div class="obj-card">
+                    <h4>⚖️ Responsabilità</h4>
+                    <p>Trasparenza totale: i dirigenti pubblici devono rispondere del loro operato.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="unisciti" class="cta-section">
-        <h2>Sei pronto a varcare la soglia?</h2>
-        <p>Scarica il nostro Manifesto Programmatico e compila il modulo per diventare un militante.</p>
-        <a href="LINK_AL_TUO_MANIFESTO_PDF" class="btn-main" style="background-color: var(--rosso-fnd);">SCARICA MANIFESTO</a>
-        <br>
-        <a href="LINK_AL_TUO_GOOGLE_FORM" class="btn-main">COMPILA IL MODULO DI ADESIONE</a>
+    <section id="unisciti" class="section" style="background: var(--blu); color: white; text-align: center;">
+        <h2 style="font-size: 2.5rem;">Varca la soglia</h2>
+        <p style="max-width: 600px; margin: 0 auto 30px auto;">Scarica il manifesto tecnico del progetto U.S.I. e compila il modulo per diventare un militante ufficiale.</p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="IL_TUO_LINK_MANIFESTO" class="btn-join" style="background: white; color: var(--blu);">Scarica Manifesto</a>
+            <a href="IL_TUO_LINK_MODULO" class="btn-join">Modulo di Adesione</a>
+        </div>
     </section>
 
     <footer>
-        <p>Fronte della Nuova Destra © 2026</p>
-        <p class="motto">OLTRE LE PAROLE, LA CONCRETEZZA.</p>
+        <p>Fronte della Nuova Destra &copy; 2026</p>
+        <p class="motto-final">OLTRE LE PAROLE, LA CONCRETEZZA.</p>
     </footer>
 
+    <script>
+        function updateStats() {
+            // DATA DI FONDAZIONE: 15 Maggio 2024 ore 09:00
+            const foundation = new Date('2024-05-15T09:00:00').getTime();
+            const now = new Date().getTime();
+            const diff = Math.floor((now - foundation) / 1000);
+
+            // Timer
+            const d = Math.floor(diff / 86400);
+            const h = Math.floor((diff % 86400) / 3600);
+            const m = Math.floor((diff % 3600) / 60);
+            const s = diff % 60;
+            document.getElementById('timer-live').innerHTML = `${d}g ${h}h ${m}m ${s}s`;
+
+            // Militanti (Base 142 + 1 ogni 4 ore circa)
+            const baseMilitanti = 142;
+            const growth = Math.floor(diff / 14400);
+            document.getElementById('count-live').innerHTML = baseMilitanti + growth;
+        }
+
+        setInterval(updateStats, 1000);
+        updateStats();
+    </script>
 </body>
 </html>
+
