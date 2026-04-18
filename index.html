@@ -2,189 +2,150 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>FND | Fronte della Nuova Destra</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;900&family=Inter:wght@400;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #004a99;
             --accent: #cc0000;
-            --white: #ffffff;
-            --glass: rgba(0, 0, 0, 0.7);
+            --dark: #050505;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #000; color: var(--white); overflow-x: hidden; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark); color: white; line-height: 1.4; overflow-x: hidden; }
 
-        /* HEADER & LOGO */
+        /* HEADER & LOGO GIGANTE */
         header {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 15px 5%; background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
-            display: flex; align-items: center; justify-content: space-between;
+            position: fixed; top: 0; width: 100%; z-index: 9999;
+            padding: 20px; background: rgba(0,0,0,0.85);
+            display: flex; align-items: center; justify-content: flex-start;
+            border-bottom: 2px solid var(--accent);
         }
 
-        .brand { display: flex; align-items: center; cursor: pointer; border: none; background: none; transition: 0.3s; }
-        .brand:hover { transform: scale(1.02); opacity: 0.9; }
+        .brand-trigger { 
+            display: flex; align-items: center; cursor: pointer; border: none; background: none; text-align: left;
+        }
         
-        .logo-img { height: 90px; width: auto; filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); }
-        .brand-text { 
-            margin-left: 15px; text-align: left; line-height: 1;
-            font-family: 'Lexend', sans-serif; font-weight: 900; font-size: 1.2rem; color: white;
-            text-transform: uppercase; letter-spacing: 1px;
+        .logo-img { 
+            height: 110px; /* Logo molto più grande */
+            width: auto; 
+            margin-right: 15px;
+            filter: drop-shadow(0 0 10px rgba(204,0,0,0.5));
         }
 
-        /* MENU OVERLAY */
+        .brand-text { 
+            font-family: 'Lexend', sans-serif; font-weight: 900; font-size: 1.4rem; 
+            color: white; text-transform: uppercase; line-height: 1; letter-spacing: 1px;
+        }
+
+        /* MENU OVERLAY CORRETTO */
         #menu-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); display: none; flex-direction: column;
-            justify-content: center; align-items: center; z-index: 2000;
+            background: rgba(0,0,0,0.98); display: none; flex-direction: column;
+            justify-content: center; align-items: center; z-index: 10000;
         }
         #menu-overlay a {
-            font-family: 'Lexend', sans-serif; font-size: 2.5rem; color: white;
-            text-decoration: none; margin: 15px 0; text-transform: uppercase; font-weight: 900;
-            transition: 0.3s;
+            font-family: 'Lexend', sans-serif; font-size: 2rem; color: white;
+            text-decoration: none; margin: 20px 0; text-transform: uppercase; font-weight: 900;
         }
-        #menu-overlay a:hover { color: var(--accent); letter-spacing: 5px; }
-        .close-menu { position: absolute; top: 30px; right: 40px; font-size: 3rem; color: white; cursor: pointer; }
+        .close-btn { position: absolute; top: 30px; right: 30px; font-size: 3rem; color: var(--accent); cursor: pointer; }
 
-        /* HERO & SFONDI */
+        /* HERO CON SFONDO E TESTO PROTETTO */
         .hero {
             height: 100vh; position: relative;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; overflow: hidden;
+            display: flex; flex-direction: column; justify-content: center; 
+            align-items: center; text-align: center; padding: 0 20px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1518005020470-58b73f830490?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover; background-position: center;
         }
-        .hero-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0, 21, 41, 0.7), rgba(204, 0, 0, 0.3)), 
-                        url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover; background-position: center; z-index: -1;
-            transform: scale(1.1); animation: pan 20s infinite alternate;
-        }
-        @keyframes pan { from { transform: scale(1); } to { transform: scale(1.1); } }
 
         .hero h1 { 
-            font-family: 'Lexend', sans-serif; font-size: clamp(2.5rem, 8vw, 5.5rem); 
-            text-transform: uppercase; line-height: 0.9; margin-bottom: 20px;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            font-family: 'Lexend', sans-serif; font-size: clamp(2rem, 10vw, 4.5rem); 
+            text-transform: uppercase; margin-top: 120px; /* Spazio per il logo */
+            line-height: 1; text-shadow: 2px 2px 20px rgba(0,0,0,1);
         }
 
         /* DASHBOARD */
-        .dashboard { display: flex; gap: 20px; margin-top: 30px; }
-        .stat { background: var(--glass); padding: 20px 30px; border-radius: 10px; border-top: 3px solid var(--accent); backdrop-filter: blur(10px); }
-        .stat-val { display: block; font-size: 2rem; font-weight: 900; }
-        .stat-lab { font-size: 0.7rem; text-transform: uppercase; color: #bbb; }
+        .dashboard { display: flex; gap: 10px; margin: 30px 0; }
+        .stat { background: rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 5px; border-left: 4px solid var(--accent); backdrop-filter: blur(10px); }
+        .stat-val { display: block; font-size: 1.5rem; font-weight: 900; color: var(--accent); }
+        .stat-lab { font-size: 0.6rem; text-transform: uppercase; }
 
-        /* SEZIONE USI (SFONDO DEDICATO) */
-        .usi-section {
-            padding: 100px 10%; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
-            url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover; background-attachment: fixed;
+        /* SEZIONI PULITE */
+        .content-section { padding: 80px 25px; border-bottom: 1px solid #222; }
+        .section-title { font-family: 'Lexend', sans-serif; font-size: 2.2rem; color: var(--accent); margin-bottom: 20px; text-transform: uppercase; }
+        .text-card { background: #111; padding: 25px; border-radius: 10px; border: 1px solid #333; margin-bottom: 20px; }
+
+        .btn-action {
+            background: var(--accent); color: white; padding: 20px 30px;
+            text-decoration: none; font-weight: 900; text-transform: uppercase;
+            display: block; text-align: center; border-radius: 5px; margin-top: 20px;
         }
 
-        .title-box { margin-bottom: 50px; }
-        .title-box h2 { font-family: 'Lexend', sans-serif; font-size: 3rem; text-transform: uppercase; color: var(--accent); }
-        
-        .content-card { background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); }
-        
-        /* BOTTONI */
-        .btn {
-            padding: 20px 45px; font-weight: 900; text-transform: uppercase; text-decoration: none;
-            border-radius: 5px; display: inline-block; transition: 0.3s; margin: 10px; cursor: pointer;
-        }
-        .btn-red { background: var(--accent); color: white; }
-        .btn-red:hover { background: white; color: var(--accent); transform: translateY(-5px); }
-
-        footer { padding: 50px; text-align: center; background: #000; border-top: 1px solid #222; }
-
+        footer { padding: 40px; text-align: center; color: #666; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
     <div id="menu-overlay">
-        <span class="close-menu" onclick="toggleMenu()">&times;</span>
-        <a href="#hero" onclick="toggleMenu()">Home</a>
-        <a href="#chi-siamo" onclick="toggleMenu()">Chi Siamo</a>
-        <a href="#usi" onclick="toggleMenu()">Progetto U.S.I.</a>
-        <a href="#obiettivi" onclick="toggleMenu()">Obiettivi</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" onclick="toggleMenu()" style="color: var(--accent);">Aderisci</a>
+        <span class="close-btn" onclick="closeNav()">&times;</span>
+        <a href="#" onclick="closeNav()">Home</a>
+        <a href="#chi-siamo" onclick="closeNav()">Chi Siamo</a>
+        <a href="#usi" onclick="closeNav()">Progetto U.S.I.</a>
+        <a href="#obiettivi" onclick="closeNav()">Obiettivi</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" style="color:var(--accent)">Aderisci</a>
     </div>
 
     <header>
-        <button class="brand" onclick="toggleMenu()">
+        <div class="brand-trigger" onclick="openNav()">
             <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" alt="FND" class="logo-img">
             <div class="brand-text">FRONTE DELLA<br>NUOVA DESTRA</div>
-        </button>
+        </div>
     </header>
 
-    <section class="hero" id="hero">
-        <div class="hero-bg"></div>
+    <section class="hero">
         <h1>RIPRENDIAMOCI<br>IL FUTURO</h1>
         
         <div class="dashboard">
-            <div class="stat"><span class="stat-val" id="m-count">--</span><span class="stat-lab">Militanti</span></div>
-            <div class="stat"><span class="stat-val" id="t-live">--</span><span class="stat-lab">Dal 26 Novembre</span></div>
+            <div class="stat"><span class="stat-val" id="m-count">400</span><span class="stat-lab">Militanti</span></div>
+            <div class="stat"><span class="stat-val" id="t-live">--</span><span class="stat-lab">In Marcia</span></div>
         </div>
 
-        <div style="margin-top: 40px;">
-            <a href="#usi" class="btn btn-red">Esplora U.S.I.</a>
+        <a href="#usi" class="btn-action">Esplora Progetto U.S.I.</a>
+    </section>
+
+    <section id="chi-siamo" class="content-section">
+        <h2 class="section-title">Chi Siamo</h2>
+        <div class="text-card">
+            <p>Siamo l'avanguardia della concretezza. Il <strong>Fronte della Nuova Destra</strong> nasce per chi non accetta più il declino. Non siamo qui per discutere, ma per imporre ordine e merito nelle nostre città.</p>
         </div>
     </section>
 
-    <section id="chi-siamo" style="padding: 100px 10%; background: #050505;">
-        <div class="title-box">
-            <h2>Chi Siamo</h2>
-            <div style="width: 100px; height: 5px; background: var(--accent); margin-top: 10px;"></div>
-        </div>
-        <div class="content-card">
-            <p style="font-size: 1.3rem; line-height: 1.8; color: #ccc;">
-                Siamo l'avanguardia della concretezza. Il **Fronte della Nuova Destra** nasce per chi non accetta più il declino. Non siamo qui per discutere, ma per imporre un nuovo standard di ordine e merito nelle nostre città. 
-                <br><br>
-                Ogni nostro iscritto è una parte attiva di un ingranaggio tecnologico e politico volto alla riconquista del decoro e della dignità nazionale.
-            </p>
+    <section id="usi" class="content-section" style="background: #0a0a0a;">
+        <h2 class="section-title">Progetto U.S.I.</h2>
+        <div class="text-card">
+            <h3 style="color:var(--accent); margin-bottom:10px;">COSA FACCIAMO:</h3>
+            <p>L'Ufficio Segnalazioni e Intervento mappa il degrado tramite intelligence territoriale e costringe gli enti pubblici all'intervento immediato tramite pressione legale.</p>
         </div>
     </section>
 
-    <section id="usi" class="usi-section">
-        <div class="title-box">
-            <h2>Progetto U.S.I.</h2>
-            <p style="color: white; font-weight: bold;">UFFICIO SEGNALAZIONI E INTERVENTO</p>
+    <section id="obiettivi" class="content-section">
+        <h2 class="section-title">I Nostri Obiettivi</h2>
+        <div class="text-card">
+            <p>• Ripristino del Decoro Urbano<br>• Responsabilità dei Dirigenti<br>• Sistema Premiale Civitas<br>• Identità e Sicurezza</p>
         </div>
-        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-            <div class="content-card">
-                <h3 style="color: var(--accent);">1. RILEVAZIONE</h3>
-                <p>Mappatura costante del degrado urbano tramite intelligence territoriale.</p>
-            </div>
-            <div class="content-card">
-                <h3 style="color: var(--accent);">2. AZIONE</h3>
-                <p>Pressione legale e amministrativa immediata sui responsabili pubblici.</p>
-            </div>
-            <div class="content-card">
-                <h3 style="color: var(--accent);">3. RISULTATO</h3>
-                <p>Ripristino dell'ordine e premiazione del merito civile (Sistema Civitas).</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="obiettivi" style="padding: 100px 10%; background: #000;">
-        <div class="title-box" style="text-align: center;">
-            <h2>I Nostri Obiettivi</h2>
-        </div>
-        <div class="content-card" style="text-align: center;">
-            <p style="font-size: 1.5rem; margin-bottom: 30px;">Ordine Urbano • Responsabilità Burocratica • Merito • Identità</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="btn btn-red">Entra nel Fronte</a>
-        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGCta5bHMnX8zQWk0Zo14bPwKfHcJI1GaMoTmLfaCKogZ3iw/viewform?usp=publish-editor" class="btn-action">Aderisci al Movimento</a>
     </section>
 
     <footer>
-        <p>&copy; 2026 FRONTE DELLA NUOVA DESTRA</p>
-        <p style="color: var(--accent); font-weight: 900; margin-top: 10px;">OLTRE LE PAROLE, LA CONCRETEZZA.</p>
+        <p>FND &copy; 2026 | Oltre le parole, la concretezza.</p>
     </footer>
 
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu-overlay');
-            menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
-        }
+        function openNav() { document.getElementById("menu-overlay").style.display = "flex"; }
+        function closeNav() { document.getElementById("menu-overlay").style.display = "none"; }
 
         function updateStats() {
             const start = new Date('2025-11-26T09:00:00').getTime();
@@ -195,7 +156,7 @@
             const h = Math.floor((diff % 86400) / 3600);
             const m = Math.floor((diff % 3600) / 60);
             
-            document.getElementById('t-live').innerHTML = `${d}g ${h}o ${m}m`;
+            document.getElementById('t-live').innerHTML = d + "g " + h + "o";
             document.getElementById('m-count').innerHTML = 400 + Math.floor(diff / 43200);
         }
         setInterval(updateStats, 1000);
