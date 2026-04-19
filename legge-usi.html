@@ -8,43 +8,43 @@
     <style>
         :root { --fnd-blue: #003366; --fnd-dark: #010204; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--fnd-dark); color: #eee; line-height: 1.8; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: var(--fnd-dark); color: #eee; line-height: 1.8; }
         
-        /* HEADER PAGINA LEGGE */
         .legge-header { 
             background: linear-gradient(rgba(0,51,102,0.9), rgba(1,2,4,1)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400');
             background-size: cover; background-position: center;
-            padding: 80px 10%; text-align: center; border-bottom: 4px solid var(--fnd-blue);
+            padding: 80px 10%; text-align: center; border-bottom: 4px solid #fff;
         }
-        .legge-header h1 { font-family: 'Lexend', sans-serif; font-size: clamp(1.5rem, 5vw, 2.5rem); text-transform: uppercase; color: white; margin-top: 20px; }
-        .logo-small { height: 80px; }
+        .logo-small { height: 80px; margin-bottom: 20px; }
+        h1 { font-family: 'Lexend', sans-serif; font-size: clamp(1.5rem, 5vw, 2.5rem); text-transform: uppercase; color: white; line-height: 1.1; }
 
-        /* CONTENUTO */
-        .legge-content { max-width: 900px; margin: 60px auto; padding: 0 25px; }
-        .legge-box { background: rgba(255,255,255,0.03); padding: 50px; border: 1px solid #222; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .legge-content { max-width: 900px; margin: 40px auto; padding: 20px; }
+        .legge-box { background: rgba(255,255,255,0.03); padding: 40px; border: 1px solid #222; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         
-        h2 { font-family: 'Lexend', sans-serif; color: var(--fnd-blue); margin: 40px 0 20px 0; font-size: 1.4rem; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        h2:first-of-type { margin-top: 0; }
+        .articolo { margin-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 30px; }
+        .art-title { font-family: 'Lexend'; font-weight: 900; color: var(--fnd-blue); display: block; margin-bottom: 15px; text-transform: uppercase; font-size: 1.2rem; border-left: 5px solid var(--fnd-blue); padding-left: 15px; }
         
-        .articolo { margin-bottom: 35px; }
-        .art-title { font-weight: 900; color: white; display: block; margin-bottom: 10px; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px; }
-        
-        .comma-list { list-style: lower-latin; padding-left: 20px; margin-top: 10px; color: #bbb; }
-        .comma-list li { margin-bottom: 8px; }
+        p { margin-bottom: 15px; color: #ddd; font-size: 1.05rem; }
+        ul { padding-left: 25px; margin-bottom: 15px; color: #bbb; list-style-type: square; }
+        li { margin-bottom: 10px; }
 
-        .footer-legge { text-align: center; padding: 60px 0; border-top: 1px solid #222; margin-top: 60px; }
-        .back-btn { display: inline-block; padding: 15px 30px; border: 2px solid white; color: white; text-decoration: none; font-family: 'Lexend'; font-weight: 900; text-transform: uppercase; transition: 0.3s; }
+        .back-nav { text-align: center; margin-top: 50px; padding-bottom: 50px; }
+        .back-btn { 
+            display: inline-block; padding: 15px 40px; border: 2px solid white; 
+            color: white; text-decoration: none; font-family: 'Lexend'; font-weight: 900; 
+            text-transform: uppercase; transition: 0.3s;
+        }
         .back-btn:hover { background: white; color: var(--fnd-blue); }
 
-        @media (max-width: 768px) { .legge-box { padding: 30px 20px; } }
+        @media (max-width: 768px) { .legge-box { padding: 25px 15px; } }
     </style>
 </head>
 <body>
 
     <header class="legge-header">
-        <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" class="logo-small" alt="Logo FND">
+        <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" class="logo-small" alt="FND">
         <h1>Proposta di Legge Nazionale U.S.I.</h1>
-        <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">Ufficio Segnalazioni e Intervento</p>
+        <p style="opacity:0.6; letter-spacing:3px; margin-top:10px; font-size: 0.8rem;">ISTITUZIONE DEL SISTEMA NAZIONALE UFFICI SEGNALAZIONI E INTERVENTO</p>
     </header>
 
     <main class="legge-content">
@@ -53,47 +53,111 @@
             <div class="articolo">
                 <span class="art-title">Art. 1 – Finalità e oggetto</span>
                 <p>La presente legge istituisce il Sistema Nazionale U.S.I. (Ufficio Segnalazioni e Intervento), quale piattaforma digitale interoperabile di coordinamento finalizzata alla raccolta, gestione, monitoraggio e tracciabilità delle segnalazioni provenienti dai cittadini e concernenti situazioni di interesse pubblico.</p>
-                <ul class="comma-list">
+                <p>Il sistema persegue i seguenti obiettivi:</p>
+                <ul>
                     <li>Miglioramento dell’efficienza amministrativa;</li>
                     <li>Riduzione dei tempi di intervento;</li>
                     <li>Incremento della trasparenza dell’azione amministrativa;</li>
-                    <li>Valorizzazione della partecipazione civica.</li>
+                    <li>Rafforzamento del coordinamento tra amministrazioni;</li>
+                    <li>Valorizzazione della partecipazione civica;</li>
+                    <li>Rafforzamento del rapporto di fiducia tra cittadini e istituzioni.</li>
                 </ul>
             </div>
 
             <div class="articolo">
                 <span class="art-title">Art. 1-bis – Definizioni</span>
-                <p>Si intende per "segnalazione" la comunicazione effettuata dal cittadino relativa a disservizi, criticità o situazioni di interesse pubblico, priva di effetti giuridici diretti.</p>
+                <p>Ai fini della presente legge si intende per:</p>
+                <ul>
+                    <li><strong>Segnalazione:</strong> comunicazione effettuata dal cittadino relativa a disservizi, criticità o situazioni di interesse pubblico;</li>
+                    <li><strong>Utente:</strong> il soggetto che accede al sistema, previa identificazione;</li>
+                    <li><strong>Sistema U.S.I.:</strong> la piattaforma digitale nazionale di cui all’articolo 1.</li>
+                </ul>
             </div>
 
             <div class="articolo">
                 <span class="art-title">Art. 2 – Natura del sistema e principi generali</span>
-                <p>Il sistema opera nel rispetto dei principi di sussidiarietà, leale collaborazione tra amministrazioni, trasparenza e accessibilità universale.</p>
+                <p>Il Sistema U.S.I. costituisce una piattaforma digitale nazionale di coordinamento e non comporta l’istituzione di nuovi livelli amministrativi. Il sistema opera nel rispetto dei principi di sussidiarietà, leale collaborazione, trasparenza, neutralità tecnologica e tempestività.</p>
             </div>
 
             <div class="articolo">
-                <span class="art-title">Art. 3 – Ambito di applicazione e priorità</span>
+                <span class="art-title">Art. 3 – Ambito di applicazione e classificazione</span>
                 <p>Le segnalazioni sono classificate secondo livelli di priorità:</p>
-                <ul class="comma-list">
-                    <li><strong>Alta priorità:</strong> Rischio per la sicurezza di persone o infrastrutture;</li>
-                    <li><strong>Media priorità:</strong> Situazioni di degrado urbano o disservizi rilevanti;</li>
-                    <li><strong>Bassa priorità:</strong> Manutenzione ordinaria o criticità minori.</li>
+                <ul>
+                    <li><strong>Alta priorità:</strong> situazioni che comportano rischio per la sicurezza delle persone o delle infrastrutture;</li>
+                    <li><strong>Media priorità:</strong> situazioni di degrado urbano o disservizi rilevanti;</li>
+                    <li><strong>Bassa priorità:</strong> interventi di manutenzione ordinaria o criticità minori.</li>
                 </ul>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 4 – Funzioni del sistema</span>
+                <p>Il Sistema U.S.I. svolge funzioni di acquisizione strutturata, classificazione, attribuzione di codice univoco, monitoraggio dello stato di avanzamento e tracciabilità delle operazioni.</p>
             </div>
 
             <div class="articolo">
                 <span class="art-title">Art. 5 – Livelli di servizio e tempi di risposta</span>
-                <p>Le amministrazioni sono tenute a garantire:</p>
-                <ul class="comma-list">
+                <p>Le amministrazioni garantiscono:</p>
+                <ul>
                     <li>Riscontro iniziale entro <strong>72 ore</strong>;</li>
-                    <li>Gestione entro 30 giorni per media priorità;</li>
-                    <li>Gestione entro 90 giorni per bassa priorità.</li>
+                    <li>Alta priorità: intervento immediato o pianificazione urgente;</li>
+                    <li>Media priorità: entro 30 giorni;</li>
+                    <li>Bassa priorità: entro 90 giorni.</li>
                 </ul>
             </div>
 
             <div class="articolo">
-                <span class="art-title">Art. 6 – Responsabilità</span>
-                <p>Il mancato rispetto ingiustificato dei livelli di servizio costituisce elemento rilevante ai fini della valutazione della performance e della responsabilità dirigenziale.</p>
+                <span class="art-title">Art. 6 – Responsabilità e poteri sostitutivi</span>
+                <p>Il mancato rispetto ingiustificato dei livelli di servizio costituisce elemento rilevante ai fini della valutazione della performance e della responsabilità dirigenziale. Possono essere attivati i poteri sostitutivi previsti dalla normativa vigente.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 7 – Trasparenza e accesso pubblico</span>
+                <p>Il sistema garantisce al cittadino la possibilità di monitorare lo stato della propria segnalazione tramite una piattaforma pubblica di consultazione con dati aggregati e anonimizzati.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 8 – Incentivi alla partecipazione civica</span>
+                <p>Il sistema può prevedere riconoscimenti digitali, accesso a programmi di cittadinanza attiva ed eventuali benefici o agevolazioni compatibili con la normativa vigente.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 9 – Architettura e interoperabilità</span>
+                <p>Il sistema è integrato con le infrastrutture tecnologiche esistenti, i sistemi di identità digitale (SPID/CIE) e le piattaforme di gestione documentale.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 10 – Utilizzo di strumenti automatizzati</span>
+                <p>L'utilizzo di IA è finalizzato esclusivamente al supporto, opera sotto supervisione umana e garantisce il diritto dell'utente di richiedere l'intervento umano.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 11 – Trattamento dei dati personali</span>
+                <p>Il trattamento avviene nel rispetto della normativa europea (GDPR) e nazionale vigente, garantendo sicurezza e protezione dei dati.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 12 – Governance del sistema</span>
+                <p>Il coordinamento è affidato alla Presidenza del Consiglio dei Ministri – Dipartimento per la trasformazione digitale.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 13 – Attuazione</span>
+                <p>Entro 120 giorni sono definiti gli standard tecnici, le modalità operative e le misure di sicurezza tramite DPCM.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 14 – Attuazione progressiva</span>
+                <p>Il sistema è implementato in modo graduale, anche mediante progetti pilota su base territoriale.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 15 – Disposizioni finanziarie</span>
+                <p>Dall’attuazione non derivano nuovi o maggiori oneri a carico della finanza pubblica, utilizzando risorse già disponibili.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 16 – Monitoraggio</span>
+                <p>Il Governo trasmette annualmente al Parlamento una relazione sullo stato di attuazione e sui risultati conseguiti.</p>
             </div>
 
             <div class="articolo">
@@ -101,14 +165,14 @@
                 <p>La presente legge entra in vigore il trentesimo giorno successivo alla pubblicazione nella Gazzetta Ufficiale.</p>
             </div>
 
-            <div class="footer-legge">
+            <div class="back-nav">
                 <a href="index.html" class="back-btn">← Torna alla Home del Fronte</a>
             </div>
         </div>
     </main>
 
-    <footer style="text-align: center; padding: 40px; opacity: 0.5; font-size: 0.8rem;">
-        Fronte della Nuova Destra - Dipartimento Affari Legali e Innovazione Digitale
+    <footer style="text-align: center; padding: 40px; opacity: 0.5; font-size: 0.8rem; color: #fff;">
+        © 2026 Fronte della Nuova Destra | Per un'Italia che decide.
     </footer>
 
 </body>
