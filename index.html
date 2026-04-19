@@ -14,31 +14,31 @@
         /* HEADER & LOGO MENU */
         header {
             position: fixed; top: 0; width: 100%; z-index: 2000;
-            padding: 10px 20px; background: rgba(0, 0, 0, 0.98);
+            padding: 12px 20px; background: rgba(0, 0, 0, 0.98);
             display: flex; align-items: center; border-bottom: 3px solid var(--fnd-white);
         }
         .menu-trigger { 
             cursor: pointer; display: flex; align-items: center; transition: 0.3s; 
             background: none; border: none; padding: 0;
         }
-        .menu-trigger:hover { opacity: 0.8; transform: scale(1.05); }
-        .logo-img { height: 50px; width: auto; margin-right: 15px; }
-        .brand-text h1 { font-family: 'Lexend', sans-serif; font-size: clamp(0.8rem, 3vw, 1.1rem); text-transform: uppercase; color: white; text-align: left; }
+        .menu-trigger:hover { transform: scale(1.05); }
+        .logo-img { height: 55px; width: auto; margin-right: 15px; }
+        .brand-text h1 { font-family: 'Lexend', sans-serif; font-size: clamp(0.8rem, 3vw, 1.1rem); text-transform: uppercase; line-height: 1.1; }
 
         /* OVERLAY MENU NAV */
         #nav-menu {
             position: fixed; top: 0; left: -100%; width: 100%; height: 100%;
             background: rgba(1, 2, 4, 0.98); z-index: 3000;
             transition: 0.5s ease-in-out; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; gap: 20px;
+            justify-content: center; align-items: center; gap: 25px;
         }
         #nav-menu.active { left: 0; }
         .close-menu { position: absolute; top: 20px; right: 30px; font-size: 3rem; color: white; cursor: pointer; font-family: 'Lexend'; }
         .nav-link { 
-            font-family: 'Lexend'; font-size: 1.5rem; color: white; text-decoration: none; 
+            font-family: 'Lexend'; font-size: 1.4rem; color: white; text-decoration: none; 
             text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
         }
-        .nav-link:hover { color: var(--fnd-blue); border-bottom: 2px solid white; }
+        .nav-link:hover { color: var(--fnd-blue); }
 
         /* HERO */
         .hero {
@@ -48,49 +48,54 @@
                         url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1400');
             background-size: cover; background-position: center;
         }
-        .hero h2 { font-family: 'Lexend', sans-serif; font-size: clamp(2.5rem, 9vw, 5rem); text-transform: uppercase; line-height: 0.9; }
-        .hero p { margin-top: 20px; font-size: clamp(0.9rem, 3vw, 1.1rem); text-transform: uppercase; letter-spacing: 4px; font-weight: 700; }
+        .hero h2 { font-family: 'Lexend', sans-serif; font-size: clamp(2.5rem, 9vw, 5rem); text-transform: uppercase; line-height: 0.9; letter-spacing: -2px; }
+        .hero p { margin-top: 25px; font-size: clamp(0.9rem, 3vw, 1.1rem); text-transform: uppercase; letter-spacing: 5px; font-weight: 700; }
 
         /* SEZIONI E TITOLI */
         section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
         .section-title { 
-            font-family: 'Lexend', sans-serif; font-size: clamp(1.6rem, 5vw, 2.5rem); 
+            font-family: 'Lexend', sans-serif; font-size: clamp(1.8rem, 5vw, 2.5rem); 
             text-transform: uppercase; margin-bottom: 40px; border-left: 10px solid var(--fnd-blue); padding-left: 20px; 
         }
 
-        /* MANIFESTO (GRID) */
+        /* MANIFESTO (GRID QUADRATI) */
         .usi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .usi-card { background: rgba(255, 255, 255, 0.04); padding: 40px 20px; border-top: 5px solid var(--fnd-blue); text-align: center; }
-        .usi-card h4 { font-family: 'Lexend'; margin-bottom: 15px; font-size: 1.2rem; text-transform: uppercase; }
-        .usi-card p { font-size: 1rem; color: #ccc; line-height: 1.6; }
+        .usi-card { background: rgba(255, 255, 255, 0.04); padding: 45px 25px; border-top: 5px solid var(--fnd-blue); text-align: center; }
+        .usi-card h4 { font-family: 'Lexend'; margin-bottom: 15px; font-size: 1.3rem; text-transform: uppercase; }
+        .usi-card p { font-size: 1.05rem; color: #ccc; line-height: 1.6; }
+
+        /* BLOCCHI PROGRAMMA CON SFONDI */
+        .point-section { width: 100%; padding: 100px 20px; background-size: cover; background-position: center; display: flex; justify-content: center; }
+        .bg-p1 { background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=1200'); }
+        .bg-p2 { background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1200'); }
+        .bg-p3 { background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1517245327032-9e92f13b6900?w=1200'); }
+        .bg-p4 { background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=1200'); }
+        .bg-p5 { background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200'); }
+        .bg-p6 { background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1521791136364-798a7bc0d26e?w=1200'); }
+
+        .content-box { background: rgba(0, 0, 0, 0.95); padding: 50px 30px; border-left: 10px solid var(--fnd-blue); width: 100%; max-width: 800px; }
+        .content-box h3 { font-family: 'Lexend'; font-size: clamp(1.4rem, 4vw, 2rem); text-transform: uppercase; margin-bottom: 15px; color: white; }
+        .content-box p { font-size: 1.1rem; line-height: 1.7; color: #eee; margin-bottom: 25px; }
 
         /* BOTTONI */
         .p-btn-main { 
             display: inline-block; background: var(--fnd-white); color: var(--fnd-blue); 
-            padding: 18px 30px; font-family: 'Lexend'; font-weight: 900; 
+            padding: 20px 35px; font-family: 'Lexend'; font-weight: 900; 
             text-transform: uppercase; text-decoration: none; text-align: center;
-            font-size: 0.9rem; margin-top: 20px; transition: 0.3s; cursor: pointer;
+            font-size: 0.9rem; transition: 0.3s;
         }
-        .p-btn-main:hover { transform: scale(1.05); background: var(--fnd-blue); color: white; }
-
-        /* POINT SECTIONS */
-        .point-section { width: 100%; padding: 80px 20px; background-size: cover; background-position: center; display: flex; justify-content: center; }
-        .bg-p1 { background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=1200'); }
-        .bg-p2 { background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1200'); }
-        .bg-p3 { background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1517245327032-9e92f13b6900?w=1200'); }
-        
-        .content-box { background: rgba(0, 0, 0, 0.9); padding: 40px; border-left: 10px solid var(--fnd-blue); width: 100%; max-width: 800px; }
-        .content-box h3 { font-family: 'Lexend'; font-size: clamp(1.3rem, 4vw, 1.8rem); text-transform: uppercase; margin-bottom: 15px; }
+        .p-btn-main:hover { background: var(--fnd-blue); color: white; transform: translateY(-3px); }
 
         /* FORM */
         .fnd-form { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 500px; margin: 0 auto; }
-        .fnd-form input { padding: 18px; background: rgba(255,255,255,0.05); border: 1px solid #444; color: white; }
-        .fnd-form button { padding: 20px; background: white; color: var(--fnd-blue); font-weight: 900; border: none; text-transform: uppercase; font-family: 'Lexend'; }
+        .fnd-form input { padding: 20px; background: rgba(255,255,255,0.05); border: 1px solid #444; color: white; font-size: 1rem; }
+        .fnd-form button { padding: 20px; background: white; color: var(--fnd-blue); font-weight: 900; border: none; text-transform: uppercase; font-family: 'Lexend'; cursor: pointer; font-size: 1.1rem; }
 
         footer { text-align: center; padding: 60px 20px; background: #000; border-top: 6px solid var(--fnd-blue); }
 
         @media (max-width: 480px) {
-            .hero h2 { font-size: 2.5rem; }
+            .hero h2 { font-size: 2.8rem; }
+            .content-box { padding: 35px 20px; }
         }
     </style>
 </head>
@@ -101,12 +106,12 @@
         <a href="#home" class="nav-link" onclick="toggleMenu()">Home</a>
         <a href="#manifesto" class="nav-link" onclick="toggleMenu()">Manifesto</a>
         <a href="legge-usi.html" class="nav-link">Legge U.S.I.</a>
-        <a href="#programma" class="nav-link" onclick="toggleMenu()">Programma</a>
+        <a href="#programma" class="nav-link" onclick="toggleMenu()">Programma Politico</a>
         <a href="#adesione" class="nav-link" onclick="toggleMenu()">Aderisci</a>
     </nav>
 
     <header>
-        <button class="menu-trigger" onclick="toggleMenu()" title="Apri Menu">
+        <button class="menu-trigger" onclick="toggleMenu()">
             <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" class="logo-img">
         </button>
         <div class="brand-text"><h1>FRONTE DELLA<br>NUOVA DESTRA</h1></div>
@@ -123,41 +128,72 @@
         <div class="usi-grid">
             <div class="usi-card">
                 <h4>📍 Presidio</h4>
-                <p>Lo Stato torna fisicamente nelle strade e digitalmente negli smartphone.</p>
+                <p>Lo Stato torna fisicamente nelle strade e digitalmente negli smartphone per non lasciarti mai solo.</p>
             </div>
             <div class="usi-card">
                 <h4>⏱️ Tempo Zero</h4>
-                <p>Niente attese. Risposta certa e obbligatoria entro 72 ore.</p>
+                <p>Burocrazia azzerata. Ogni tua segnalazione riceverà risposta e intervento entro 72 ore.</p>
             </div>
             <div class="usi-card">
                 <h4>🛡️ Sicurezza</h4>
-                <p>Il decoro urbano è la garanzia della libertà di ogni cittadino.</p>
+                <p>Il decoro delle nostre città è il fondamento della libertà civile di ogni italiano.</p>
             </div>
         </div>
     </section>
 
+    <section style="background: #080a0c; text-align: center; border-top: 1px solid #222;">
+        <h2 class="section-title" style="text-align: left;">Proposta di Legge U.S.I.</h2>
+        <p style="color: #bbb; margin-bottom: 30px; font-size: 1.2rem;">La nostra rivoluzione digitale per una Pubblica Amministrazione trasparente.</p>
+        <a href="legge-usi.html" class="p-btn-main">Leggi il Testo Integrale della Legge</a>
+    </section>
+
     <div id="programma"></div>
+    
     <div class="point-section bg-p1">
         <div class="content-box">
             <h3>Semi-Parlamentarismo</h3>
-            <p>Un governo forte scelto dal popolo per governare 5 anni senza ricatti.</p>
-            <a href="semi-parlamentarismo.html" class="p-btn-main">Approfondisci</a>
+            <p>Vogliamo un governo forte scelto dal popolo per 5 anni. Basta governi tecnici e instabilità parlamentare.</p>
+            <a href="semi-parlamentarismo.html" class="p-btn-main">Approfondisci Punto 1</a>
         </div>
     </div>
 
     <div class="point-section bg-p2">
         <div class="content-box">
-            <h3>Natalità & Famiglia</h3>
-            <p>Tassazione zero per le famiglie numerose e incentivi al lavoro.</p>
-            <a href="natalita-lavoro.html" class="p-btn-main">Approfondisci</a>
+            <h3>Natalità & Lavoro</h3>
+            <p>Tassazione zero per le famiglie numerose e protezione del lavoro italiano contro la concorrenza sleale.</p>
+            <a href="natalita-lavoro.html" class="p-btn-main">Approfondisci Punto 2</a>
         </div>
     </div>
 
     <div class="point-section bg-p3">
         <div class="content-box">
             <h3>Energia Nucleare</h3>
-            <p>Indipendenza energetica e bollette dimezzate per tutti.</p>
-            <a href="nucleare.html" class="p-btn-main">Approfondisci</a>
+            <p>Indipendenza energetica tramite reattori di nuova generazione. Bollette basse per rilanciare l'economia.</p>
+            <a href="nucleare.html" class="p-btn-main">Approfondisci Punto 3</a>
+        </div>
+    </div>
+
+    <div class="point-section bg-p4">
+        <div class="content-box">
+            <h3>Semi-Federalismo</h3>
+            <p>Autonomia alle regioni efficienti ma controllo ferreo dello Stato su sicurezza e infrastrutture strategiche.</p>
+            <a href="semi-federalismo.html" class="p-btn-main">Approfondisci Punto 4</a>
+        </div>
+    </div>
+
+    <div class="point-section bg-p5">
+        <div class="content-box">
+            <h3>Libertà Civili</h3>
+            <p>Uno Stato laico che rispetta l'individuo: libertà di scelta e protezione dei diritti di ogni cittadino.</p>
+            <a href="liberta-civili.html" class="p-btn-main">Approfondisci Punto 5</a>
+        </div>
+    </div>
+
+    <div class="point-section bg-p6">
+        <div class="content-box">
+            <h3>Riforma Giustizia</h3>
+            <p>Tempi certi per i processi e responsabilità civile dei magistrati. La legge deve essere uguale e rapida.</p>
+            <a href="giustizia.html" class="p-btn-main">Approfondisci Punto 6</a>
         </div>
     </div>
 
@@ -165,20 +201,21 @@
         <h2 class="section-title">Aderisci al Fronte</h2>
         <form action="https://formspree.io/f/mqewbqvj" method="POST" class="fnd-form">
             <input type="text" name="Nome" placeholder="Nome e Cognome" required>
-            <input type="email" name="Email" placeholder="Email" required>
+            <input type="email" name="Email" placeholder="Indirizzo Email" required>
+            <input type="text" name="Citta" placeholder="Città" required>
             <button type="submit">Invia Adesione</button>
         </form>
     </section>
 
     <footer>
-        <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" style="height:50px; margin-bottom:15px;">
-        <p style="font-family: 'Lexend'; font-size: 0.9rem;">FRONTE DELLA NUOVA DESTRA</p>
+        <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" style="height:60px; margin-bottom:15px;">
+        <p style="font-family: 'Lexend'; font-size: 1.1rem; letter-spacing: 2px;">FRONTE DELLA NUOVA DESTRA</p>
+        <p style="font-size: 0.8rem; opacity: 0.5; margin-top: 10px;">© 2026 | Movimento Politico Nazionale</p>
     </footer>
 
     <script>
         function toggleMenu() {
-            const menu = document.getElementById('nav-menu');
-            menu.classList.toggle('active');
+            document.getElementById('nav-menu').classList.toggle('active');
         }
     </script>
 
