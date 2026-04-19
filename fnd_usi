@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FND | Testo Integrale Legge U.S.I.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --fnd-blue: #003366; --fnd-dark: #010204; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--fnd-dark); color: #eee; line-height: 1.8; padding: 0; }
+        
+        /* HEADER PAGINA LEGGE */
+        .legge-header { 
+            background: linear-gradient(rgba(0,51,102,0.9), rgba(1,2,4,1)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400');
+            background-size: cover; background-position: center;
+            padding: 80px 10%; text-align: center; border-bottom: 4px solid var(--fnd-blue);
+        }
+        .legge-header h1 { font-family: 'Lexend', sans-serif; font-size: clamp(1.5rem, 5vw, 2.5rem); text-transform: uppercase; color: white; margin-top: 20px; }
+        .logo-small { height: 80px; }
+
+        /* CONTENUTO */
+        .legge-content { max-width: 900px; margin: 60px auto; padding: 0 25px; }
+        .legge-box { background: rgba(255,255,255,0.03); padding: 50px; border: 1px solid #222; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        
+        h2 { font-family: 'Lexend', sans-serif; color: var(--fnd-blue); margin: 40px 0 20px 0; font-size: 1.4rem; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        h2:first-of-type { margin-top: 0; }
+        
+        .articolo { margin-bottom: 35px; }
+        .art-title { font-weight: 900; color: white; display: block; margin-bottom: 10px; text-transform: uppercase; font-size: 1rem; letter-spacing: 1px; }
+        
+        .comma-list { list-style: lower-latin; padding-left: 20px; margin-top: 10px; color: #bbb; }
+        .comma-list li { margin-bottom: 8px; }
+
+        .footer-legge { text-align: center; padding: 60px 0; border-top: 1px solid #222; margin-top: 60px; }
+        .back-btn { display: inline-block; padding: 15px 30px; border: 2px solid white; color: white; text-decoration: none; font-family: 'Lexend'; font-weight: 900; text-transform: uppercase; transition: 0.3s; }
+        .back-btn:hover { background: white; color: var(--fnd-blue); }
+
+        @media (max-width: 768px) { .legge-box { padding: 30px 20px; } }
+    </style>
+</head>
+<body>
+
+    <header class="legge-header">
+        <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" class="logo-small" alt="Logo FND">
+        <h1>Proposta di Legge Nazionale U.S.I.</h1>
+        <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">Ufficio Segnalazioni e Intervento</p>
+    </header>
+
+    <main class="legge-content">
+        <div class="legge-box">
+            
+            <div class="articolo">
+                <span class="art-title">Art. 1 – Finalità e oggetto</span>
+                <p>La presente legge istituisce il Sistema Nazionale U.S.I. (Ufficio Segnalazioni e Intervento), quale piattaforma digitale interoperabile di coordinamento finalizzata alla raccolta, gestione, monitoraggio e tracciabilità delle segnalazioni provenienti dai cittadini e concernenti situazioni di interesse pubblico.</p>
+                <ul class="comma-list">
+                    <li>Miglioramento dell’efficienza amministrativa;</li>
+                    <li>Riduzione dei tempi di intervento;</li>
+                    <li>Incremento della trasparenza dell’azione amministrativa;</li>
+                    <li>Valorizzazione della partecipazione civica.</li>
+                </ul>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 1-bis – Definizioni</span>
+                <p>Si intende per "segnalazione" la comunicazione effettuata dal cittadino relativa a disservizi, criticità o situazioni di interesse pubblico, priva di effetti giuridici diretti.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 2 – Natura del sistema e principi generali</span>
+                <p>Il sistema opera nel rispetto dei principi di sussidiarietà, leale collaborazione tra amministrazioni, trasparenza e accessibilità universale.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 3 – Ambito di applicazione e priorità</span>
+                <p>Le segnalazioni sono classificate secondo livelli di priorità:</p>
+                <ul class="comma-list">
+                    <li><strong>Alta priorità:</strong> Rischio per la sicurezza di persone o infrastrutture;</li>
+                    <li><strong>Media priorità:</strong> Situazioni di degrado urbano o disservizi rilevanti;</li>
+                    <li><strong>Bassa priorità:</strong> Manutenzione ordinaria o criticità minori.</li>
+                </ul>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 5 – Livelli di servizio e tempi di risposta</span>
+                <p>Le amministrazioni sono tenute a garantire:</p>
+                <ul class="comma-list">
+                    <li>Riscontro iniziale entro <strong>72 ore</strong>;</li>
+                    <li>Gestione entro 30 giorni per media priorità;</li>
+                    <li>Gestione entro 90 giorni per bassa priorità.</li>
+                </ul>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 6 – Responsabilità</span>
+                <p>Il mancato rispetto ingiustificato dei livelli di servizio costituisce elemento rilevante ai fini della valutazione della performance e della responsabilità dirigenziale.</p>
+            </div>
+
+            <div class="articolo">
+                <span class="art-title">Art. 17 – Entrata in vigore</span>
+                <p>La presente legge entra in vigore il trentesimo giorno successivo alla pubblicazione nella Gazzetta Ufficiale.</p>
+            </div>
+
+            <div class="footer-legge">
+                <a href="index.html" class="back-btn">← Torna alla Home del Fronte</a>
+            </div>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; opacity: 0.5; font-size: 0.8rem;">
+        Fronte della Nuova Destra - Dipartimento Affari Legali e Innovazione Digitale
+    </footer>
+
+</body>
+</html>
