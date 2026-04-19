@@ -17,7 +17,7 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: var(--fnd-dark); color: var(--fnd-white); overflow-x: hidden; }
 
-        /* HEADER ISTITUZIONALE */
+        /* HEADER */
         header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             padding: 15px 5%; background: rgba(0, 0, 0, 0.98);
@@ -25,7 +25,7 @@
             box-shadow: 0 4px 30px rgba(0,0,0,0.7);
         }
         .brand { display: flex; align-items: center; cursor: pointer; text-decoration: none; border: none; background: none; width: 100%; }
-        .logo-img { height: 95px; width: auto; margin-right: 20px; flex-shrink: 0; filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); }
+        .logo-img { height: 95px; width: auto; margin-right: 20px; flex-shrink: 0; }
         .brand-text h1 { font-family: 'Lexend', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--fnd-white); text-transform: uppercase; line-height: 1.1; text-align: left; }
 
         /* MENU */
@@ -39,7 +39,6 @@
             text-decoration: none; margin: 12px 0; text-transform: uppercase; font-weight: 900;
             padding: 20px; border: 2px solid var(--fnd-white); width: 80%; max-width: 400px; text-align: center; transition: 0.3s;
         }
-        .menu-btn:hover { background: var(--fnd-white); color: var(--fnd-blue); }
         .close-btn { position: absolute; top: 30px; right: 40px; font-size: 4rem; cursor: pointer; }
 
         /* HERO */
@@ -51,22 +50,20 @@
             background-size: cover; background-position: center;
         }
         .hero h2 { font-family: 'Lexend', sans-serif; font-size: clamp(2.2rem, 8vw, 5rem); text-transform: uppercase; line-height: 0.9; letter-spacing: -2px; }
-        .hero p { margin-top: 25px; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 5px; opacity: 0.9; color: var(--fnd-white); }
+        .hero p { margin-top: 25px; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 5px; opacity: 0.9; }
 
         /* SEZIONI GENERALI */
         section { padding: 100px 8%; position: relative; }
         .section-title { font-family: 'Lexend', sans-serif; font-size: 2.5rem; text-transform: uppercase; margin-bottom: 50px; border-left: 15px solid var(--fnd-blue); padding-left: 25px; }
 
-        /* IL MANIFESTO & BOX PROPOSTA LEGGE */
         .manifesto-box { background: rgba(255,255,255,0.02); padding: 50px; border: 1px solid #222; backdrop-filter: blur(10px); }
         .manifesto-box p { font-size: 1.15rem; line-height: 1.8; margin-bottom: 25px; color: #eee; }
-        
-        .usi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .usi-card { background: rgba(0, 51, 102, 0.15); padding: 30px; border-top: 4px solid var(--fnd-blue); transition: 0.3s; }
-        .usi-card:hover { background: rgba(0, 51, 102, 0.3); }
-        .usi-card h4 { font-family: 'Lexend', sans-serif; margin-bottom: 15px; text-transform: uppercase; color: var(--fnd-white); }
 
-        /* PROGRAMMA PULSANTI ALLINEATI */
+        .usi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .usi-card { background: rgba(0, 51, 102, 0.15); padding: 30px; border-top: 4px solid var(--fnd-blue); }
+        .usi-card h4 { font-family: 'Lexend', sans-serif; margin-bottom: 15px; text-transform: uppercase; }
+
+        /* PROGRAMMA PULSANTI */
         .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
         .p-btn { 
             background: transparent; border: 3px solid var(--fnd-white); padding: 25px 10px; 
@@ -75,7 +72,7 @@
         }
         .p-btn:hover { background: var(--fnd-white); color: var(--fnd-blue); }
 
-        /* PUNTI PROGRAMMA - FIX TESTO CHE ESCE */
+        /* POINT SECTIONS */
         .point-section {
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
             padding: 120px 5%; background-size: cover; background-position: center; background-attachment: fixed;
@@ -89,7 +86,6 @@
             text-transform: uppercase; margin-bottom: 25px; 
             overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; line-height: 1.1;
         }
-        .content-box p { font-size: 1.2rem; line-height: 1.8; color: #ddd; }
 
         /* SFONDI */
         .bg-p1 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=1400'); }
@@ -99,20 +95,17 @@
         .bg-p5 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1513828583688-c52646db42da?w=1400'); }
         .bg-p6 { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400'); }
 
-        /* FORM ADESIONE PERFETTO */
+        /* FORM */
         .fnd-form { display: grid; gap: 20px; max-width: 600px; width: 100%; margin-top: 30px; }
-        .fnd-form input { width: 100%; padding: 20px; background: rgba(255,255,255,0.05); border: 2px solid #333; color: white; font-size: 1.1rem; border-radius: 0; }
+        .fnd-form input { width: 100%; padding: 20px; background: rgba(255,255,255,0.05); border: 2px solid #333; color: white; font-size: 1.1rem; }
         .fnd-form button { width: 100%; background: var(--fnd-white); color: var(--fnd-blue); padding: 20px; font-weight: 900; border: none; cursor: pointer; text-transform: uppercase; font-family: 'Lexend'; font-size: 1.1rem; transition: 0.3s; }
-        .fnd-form button:hover { background: var(--fnd-blue); color: white; }
-
+        
         .btn-top { display: inline-block; background: var(--fnd-white); color: var(--fnd-blue); padding: 12px 25px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; margin-top: 30px; }
 
         footer { padding: 80px 8%; text-align: center; background: #000; border-top: 8px solid var(--fnd-blue); }
         .footer-logo { height: 120px; margin-bottom: 30px; }
 
-        /* MOBILE FIXES */
         @media (max-width: 768px) {
-            header { padding: 10px 4%; }
             .logo-img { height: 75px; }
             .brand-text h1 { font-size: 1rem; }
             .hero h2 { font-size: 2.5rem; }
@@ -162,11 +155,17 @@
     <section id="legge-usi" style="background: #05070a;">
         <h2 class="section-title">Proposta di Legge U.S.I.</h2>
         <div class="manifesto-box" style="border-left: 5px solid var(--fnd-blue);">
-            <p><strong>Art.1 – Finalità</strong><br>Istituzione del sistema nazionale U.S.I. per la riqualificazione immediata del territorio e la partecipazione attiva dei cittadini.</p>
-            <p><strong>Art.2 – Funzionamento</strong><br>Gestione centralizzata delle segnalazioni con tracciamento pubblico dell'operato dei dirigenti comunali.</p>
-            <p><strong>Art.3 – Obbligo di Intervento</strong><br>Intervento forzato entro 72 ore per criticità segnalate. La mancata azione comporta sanzioni dirette all'ente.</p>
-            <div style="margin-top: 30px; text-align: center;">
-                <span style="font-family: 'Lexend'; color: var(--fnd-blue); font-weight: 900;">IL CITTADINO DIVENTA SOVRANO DEL PROPRIO TERRITORIO.</span>
+            <p><strong>Il cittadino torna al centro della sovranità territoriale.</strong></p>
+            <p>La legge U.S.I. impone alla Pubblica Amministrazione tempi certi, tracciabilità totale e responsabilità dirigenziale diretta.</p>
+            
+            <div class="usi-grid">
+                <div class="usi-card"><h4>Art. 1 - Finalità</h4><p>Istituzione del Sistema Nazionale per la tracciabilità delle segnalazioni.</p></div>
+                <div class="usi-card"><h4>Art. 5 - Tempi</h4><p>Riscontro obbligatorio entro 72 ore e interventi certi.</p></div>
+                <div class="usi-card"><h4>Art. 6 - Responsabilità</h4><p>Il mancato intervento comporta la responsabilità dei dirigenti.</p></div>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center;">
+                <a href="legge-usi.html" class="p-btn" style="display: inline-block; padding: 20px 40px; background: var(--fnd-white); color: var(--fnd-blue); border: none;">Leggi il Testo Integrale della Legge</a>
             </div>
         </div>
     </section>
@@ -183,58 +182,17 @@
         </div>
     </section>
 
-    <section id="p1" class="point-section bg-p1">
-        <div class="content-box">
-            <h3>Semi-Parlamentarismo</h3>
-            <p>Un governo eletto dai cittadini con il potere di governare per 5 anni. Stabilità assoluta per le riforme, fine dei giochi di palazzo e dei ricatti parlamentari.</p>
-            <a href="#programma" class="btn-top">Torna al Programma ↑</a>
-        </div>
-    </section>
-
-    <section id="p2" class="point-section bg-p2">
-        <div class="content-box">
-            <h3>Semi-Federalismo</h3>
-            <p>Autonomia reale alle Regioni su Sanità e Sviluppo, ma uno Stato Centrale granitico su Sicurezza, Esteri e Giustizia. Più efficienza locale, più identità nazionale.</p>
-            <a href="#programma" class="btn-top">Torna al Programma ↑</a>
-        </div>
-    </section>
-
-    <section id="p3" class="point-section bg-p3">
-        <div class="content-box">
-            <h3>U.S.I. Integrale</h3>
-            <p>Il sistema che premia il merito. Chi segnala il degrado e aiuta lo Stato riceve crediti sociali spendibili in servizi e agevolazioni fiscali.</p>
-            <a href="#programma" class="btn-top">Torna al Programma ↑</a>
-        </div>
-    </section>
-
-    <section id="p4" class="point-section bg-p4">
-        <div class="content-box">
-            <h3>Lavoro & Natalità</h3>
-            <p>Investimento massiccio sulle famiglie. Detrazioni totali per il terzo figlio e salario minimo garantito per proteggere la dignità del lavoro italiano.</p>
-            <a href="#programma" class="btn-top">Torna al Programma ↑</a>
-        </div>
-    </section>
-
-    <section id="p5" class="point-section bg-p5">
-        <div class="content-box">
-            <h3>Energia Nucleare</h3>
-            <p>Basta dipendenza energetica. Costruzione di centrali di ultima generazione per abbattere i costi delle bollette per imprese e cittadini.</p>
-            <a href="#programma" class="btn-top">Torna al Programma ↑</a>
-        </div>
-    </section>
-
-    <section id="p6" class="point-section bg-p6">
-        <div class="content-box">
-            <h3>Libertà Civili</h3>
-            <p>Uno Stato moderno rispetta la vita privata. Tutela delle libertà individuali, matrimonio egualitario e rispetto per le scelte sul fine vita.</p>
-            <a href="#programma" class="btn-top">Torna al Programma ↑</a>
-        </div>
-    </section>
+    <section id="p1" class="point-section bg-p1"><div class="content-box"><h3>Semi-Parlamentarismo</h3><p>Un governo forte eletto per governare 5 anni senza paralisi. Stabilità per le riforme e fine dei giochi di palazzo.</p><a href="#programma" class="btn-top">Indice ↑</a></div></section>
+    <section id="p2" class="point-section bg-p2"><div class="content-box"><h3>Semi-Federalismo</h3><p>Autonomia alle Regioni su Sanità e Sviluppo, Stato Centrale granitico su Sicurezza e Giustizia.</p><a href="#programma" class="btn-top">Indice ↑</a></div></section>
+    <section id="p3" class="point-section bg-p3"><div class="content-box"><h3>U.S.I. Integrale</h3><p>Il sistema che premia il merito. Agevolazioni fiscali e crediti per i cittadini che partecipano alla cura del territorio.</p><a href="#programma" class="btn-top">Indice ↑</a></div></section>
+    <section id="p4" class="point-section bg-p4"><div class="content-box"><h3>Lavoro & Natalità</h3><p>Detrazioni totali per il terzo figlio e salario minimo garantito per proteggere la dignità del lavoro.</p><a href="#programma" class="btn-top">Indice ↑</a></div></section>
+    <section id="p5" class="point-section bg-p5"><div class="content-box"><h3>Energia Nucleare</h3><p>Basta dipendenza estera. Centrali di ultima generazione per abbattere i costi delle bollette italiane.</p><a href="#programma" class="btn-top">Indice ↑</a></div></section>
+    <section id="p6" class="point-section bg-p6"><div class="content-box"><h3>Libertà Civili</h3><p>Rispetto della vita privata e delle libertà individuali. Matrimonio egualitario e dignità nel fine vita.</p><a href="#programma" class="btn-top">Indice ↑</a></div></section>
 
     <section id="adesione">
         <h2 class="section-title">Aderisci</h2>
         <div class="manifesto-box">
-            <p>Fai parte della Nuova Destra. Invia la tua adesione per ricevere il kit informativo e partecipare alle assemblee territoriali.</p>
+            <p>Fai parte della Nuova Destra. Invia la tua adesione per partecipare alle assemblee territoriali.</p>
             <form action="https://formspree.io/f/mqewbqvj" method="POST" class="fnd-form">
                 <input type="text" name="nome" placeholder="Nome e Cognome" required>
                 <input type="email" name="email" placeholder="Email" required>
@@ -246,7 +204,7 @@
 
     <footer>
         <img src="https://i.postimg.cc/x1x2cDpZ/Picsart-26-04-18-16-22-52-933.png" alt="Logo FND" class="footer-logo">
-        <p style="font-family: 'Lexend'; font-size: 1.1rem; text-transform: uppercase;">Fronte della Nuova Destra</p>
+        <p style="font-family: 'Lexend'; font-size: 1.1rem;">Fronte della Nuova Destra</p>
         <p style="margin-top: 10px; opacity: 0.6;">© 2026 | Per un'Italia che decide.</p>
     </footer>
 
@@ -255,23 +213,13 @@
             const overlay = document.getElementById("menu-overlay");
             overlay.style.display = (overlay.style.display === "flex") ? "none" : "flex";
         }
-
         document.addEventListener("DOMContentLoaded", function() {
             if (localStorage.getItem("fnd_aderito") === "true") {
                 const box = document.querySelector("#adesione .manifesto-box");
-                if (box) {
-                    box.innerHTML = `<div style="text-align:center;padding:50px 20px;border:2px solid var(--fnd-blue);">
-                        <h3 style="color:#fff;font-family:'Lexend';text-transform:uppercase;">Adesione Ricevuta</h3>
-                        <p style="margin-top:15px;opacity:0.8;">Grazie per esserti unito al Fronte. Controlla la tua email.</p>
-                    </div>`;
-                }
+                if (box) box.innerHTML = `<div style="text-align:center;padding:50px 20px;border:2px solid var(--fnd-blue);"><h3>Adesione Ricevuta</h3><p style="margin-top:15px;opacity:0.8;">Grazie per esserti unito al Fronte.</p></div>`;
             }
             const form = document.querySelector(".fnd-form");
-            if (form) {
-                form.addEventListener("submit", function() {
-                    localStorage.setItem("fnd_aderito", "true");
-                });
-            }
+            if (form) form.addEventListener("submit", function() { localStorage.setItem("fnd_aderito", "true"); });
         });
     </script>
 </body>
